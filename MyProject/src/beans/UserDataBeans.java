@@ -8,7 +8,7 @@ public class UserDataBeans implements Serializable {
 	private int id;
 	private String login_id;
 	private String name;
-	private Date birth_date;
+	private String birth_date;
 	private String password;
 	private String address;
 	private int phone_number;
@@ -19,6 +19,10 @@ public class UserDataBeans implements Serializable {
 
 	public UserDataBeans() {
 
+	}
+
+	//ログインに使用するコンストラクター//
+	public UserDataBeans(String loginIdData, String nameData) {
 	}
 
 	public int getId() {
@@ -45,11 +49,11 @@ public class UserDataBeans implements Serializable {
 		this.name = name;
 	}
 
-	public Date getBirth_date() {
+	public String getBirth_date() {
 		return birth_date;
 	}
 
-	public void setBirth_date(Date birth_date) {
+	public void setBirth_date(String birth_date) {
 		this.birth_date = birth_date;
 	}
 
