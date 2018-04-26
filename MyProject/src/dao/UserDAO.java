@@ -4,55 +4,24 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import base.DBManager;
 import beans.UserDataBeans;
 
+/**
+ *
+ * @author d-yamaguchi
+ *
+ */
 public class UserDAO {
+	// インスタンスオブジェクトを返却させてコードの簡略化
 	public static UserDAO getInstance() {
 		return new UserDAO();
 	}
 
-	/**
-	 * 入力された値をTABLEにINSERT
-	 * @param udb
-	 * @throws SQLException
-	 */
-	public void insertUser(UserDataBeans udb) throws SQLException {
-		Connection con = null;
-		PreparedStatement st = null;
-		try {
-			con = DBManager.getConnection();
-			st = con.prepareStatement(
-					"insert into t_user (login_id,name,birth_date,password,address,phone_number,postal_code,mail_address,create_date) values (?,?,?,MD5(?),?,?,?,?,now())");
-			st.setString(1, udb.getLogin_id());
-			st.setString(2, udb.getName());
-			st.setString(3, udb.getBirth_date());
-			st.setString(4, udb.getPassword());
-			st.setString(5, udb.getAddress());
-			st.setString(5, udb.getAddress());
-			st.setInt(6, udb.getPhone_number());
-			st.setInt(7, udb.getPostal_code());
-			st.setString(8, udb.getMail_address());
-			st.executeUpdate();
-			System.out.println("inserting user has been completed");
-
-		} catch (Exception e) {
-			// TODO: handle exception
-		} finally {
-			if (con != null) {
-				con.close();
-			}
-		}
-	}
-
-	/**
-	 *  ユーザーIDを取得
-	 * @param login_id
-	 * @param password
-	 * @return
-	 * @throws SQLException
-	 */
 	public UserDataBeans findByLoginInfo(String login_id, String password) {
 		//入力されたログインIDとパスワードをテーブル内から検索して正/否を判断するメソット//
 		Connection conn = null;
@@ -84,6 +53,157 @@ public class UserDAO {
 				} catch (SQLException e) {
 					e.printStackTrace();
 					return null;
+				}
+			}
+		}
+	}
+
+	public String findByLoginIdCheck(String login_id) {
+		//テーブル内に入力されたログインIDが既に存在しているか検索するメソット//
+		Connection conn = null;
+		try {
+			conn = DBManager.getConnection();
+
+			String sql = "SELECT * FROM t_user WHERE login_id = ?";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, login_id);
+			ResultSet rs = pStmt.executeQuery();
+
+			if (rs.next()) {
+				return null;
+			} else {
+				return login_id;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+	}
+
+	public void signUp(String login_id, String name, String birth_date, String password, String address,
+			String phone_number, String postal_code, String mail_address) {
+
+		Connection conn = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+
+			String sql = "INSERT INTO t_user (login_id,name,birth_date,password,address,phone_number,postal_code,mail_address,create_date) VALUES (?,?,?,?,?,?,?,?,now())";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, login_id);
+			pStmt.setString(2, name);
+			pStmt.setString(3, birth_date);
+			pStmt.setString(4, password);
+			pStmt.setString(5, address);
+			pStmt.setString(6, phone_number);
+			pStmt.setString(7, postal_code);
+			pStmt.setString(8, mail_address);
+			pStmt.executeUpdate();
+
+			pStmt.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
+	public List<UserDataBeans> findByUserInfo(String selectId) {
+		//指定したIDのテーブルデータを参照するメソット//
+		Connection conn = null;
+		List<UserDataBeans> userList = new ArrayList<UserDataBeans>();
+		try {
+			conn = DBManager.getConnection();
+
+			String sql = "SELECT * FROM t_user WHERE id = ?";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, selectId);
+
+			ResultSet rs = pStmt.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String login_id = rs.getString("login_id");
+				String password = rs.getString("password");
+				String name = rs.getString("name");
+				Date birth_date = rs.getDate("birth_date");
+				String address = rs.getString("address");
+				String postal_code = rs.getString("postal_code");
+				UserDataBeans udb = new UserDataBeans(id, login_id, password, name, birth_date, address, postal_code);
+				udb.setBirthDateFmt(birth_date);
+
+				userList.add(udb);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+
+			}
+		}
+		return userList;
+	}
+
+	public void upDate(String password, String name, String birth_date, String address, String postal_code, String id) {
+		//テーブル内に格納されているデータを更新上書きするメソット//
+		Connection conn = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+
+			String sql = "UPDATE t_user SET password = ?, name = ?, birth_date = ?, address = ?, postal_code =?  WHERE id= ? ";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, password);
+			pStmt.setString(2, name);
+			pStmt.setString(3, birth_date);
+			pStmt.setString(4, address);
+			pStmt.setString(5, postal_code);
+			pStmt.setString(6, id);
+			pStmt.executeUpdate();
+
+			pStmt.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
 				}
 			}
 		}

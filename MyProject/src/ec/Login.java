@@ -2,11 +2,13 @@ package ec;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.UserDataBeans;
 import dao.UserDAO;
@@ -31,15 +33,19 @@ public class Login extends HttpServlet {
 		String password = request.getParameter("password");
 
 		UserDAO userDao = new UserDAO();
-		UserDataBeans user = userDao.findByLoginInfo(login_id, password);
+		UserDataBeans udb = userDao.findByLoginInfo(login_id, password);
 
-		if (user == null) {
+		if (udb == null) {
 
 			request.setAttribute("errMsg", "ログインに失敗しました。");
 
-			request.getRequestDispatcher(EcHelper.LOGIN_PAGE).forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.LOGIN_PAGE);
+			dispatcher.forward(request, response);
 			return;
 		}
-		request.getRequestDispatcher(EcHelper.TOP_PAGE).forward(request, response);
+
+		HttpSession session = request.getSession();
+		session.setAttribute("userInfo", udb);
+		response.sendRedirect("Logout");
 	}
 }

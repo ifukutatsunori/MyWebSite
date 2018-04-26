@@ -34,7 +34,7 @@ public class EcHelper {
 		// ログイン
 		static final String LOGIN_PAGE = "/jsp/login.jsp";
 		// ログアウト **未実装**
-		static final String LOGOUT_PAGE = "";
+		static final String LOGOUT_PAGE = "/jsp/index-login.jsp";
 		// 新規登録
 		static final String REGIST_PAGE = "/jsp/user-Registration.jsp";
 		// 新規登録入力内容確認 **未実装**

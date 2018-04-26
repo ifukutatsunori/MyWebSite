@@ -31,7 +31,7 @@
 
 		<div class="button-area">
 
-			<a href="">
+			<a href="UserInfo">
 				<button type="button" class="btn">
 					<i class="far fa-user"></i>アカウント
 				</button>
@@ -39,9 +39,9 @@
 				<button type="button" class="btn">
 					<i class="fas fa-user-plus"></i>会員登録
 				</button>
-			</a> <a href="login">
+			</a> <a href="Index">
 				<button type="submit" class="btn">
-					<i class="fas fa-sign-in-alt"></i>ログイン
+					<i class="fas fa-sign-out-alt"></i>ログアウト
 				</button>
 			</a> <a href="">
 				<button type="button" class="btn">

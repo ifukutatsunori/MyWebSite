@@ -1,6 +1,8 @@
 package beans;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class UserDataBeans implements Serializable {
@@ -9,10 +11,11 @@ public class UserDataBeans implements Serializable {
 	private String login_id;
 	private String name;
 	private String birth_date;
+	private String birthDateFmt;
 	private String password;
 	private String address;
-	private int phone_number;
-	private int postal_code;
+	private String phone_number;
+	private String postal_code;
 	private String mail_address;
 	private Date create_date;
 	private Date create_date_fmt;
@@ -23,6 +26,11 @@ public class UserDataBeans implements Serializable {
 
 	//ログインに使用するコンストラクター//
 	public UserDataBeans(String loginIdData, String nameData) {
+	}
+
+	public UserDataBeans(int id, String login_id, String password, String name, Date birth_date, String address,
+			String postal_code) {
+		// TODO 自動生成されたコンストラクター・スタブ
 	}
 
 	public int getId() {
@@ -73,19 +81,19 @@ public class UserDataBeans implements Serializable {
 		this.address = address;
 	}
 
-	public int getPhone_number() {
+	public String getPhone_number() {
 		return phone_number;
 	}
 
-	public void setPhone_number(int phone_number) {
+	public void setPhone_number(String phone_number) {
 		this.phone_number = phone_number;
 	}
 
-	public int getPostal_code() {
+	public String getPostal_code() {
 		return postal_code;
 	}
 
-	public void setPostal_code(int postal_code) {
+	public void setPostal_code(String postal_code) {
 		this.postal_code = postal_code;
 	}
 
@@ -111,5 +119,16 @@ public class UserDataBeans implements Serializable {
 
 	public void setCreate_date_fmt(Date create_date_fmt) {
 		this.create_date_fmt = create_date_fmt;
+	}
+
+	public String getBirthDateFmt() {
+		return birthDateFmt;
+	}
+
+	public void setBirthDateFmt(Date birth_date) {
+		// userListからbirthDateを取得してString型に変換するメソット//
+		DateFormat df1 = new SimpleDateFormat("yyyy'年'MM'月'dd'日'");
+		String sDate = df1.format(birth_date);
+		this.birthDateFmt = sDate;
 	}
 }

@@ -19,12 +19,16 @@
 	<div class="alert" role="alert">
 		<h1 class="title-area">会員ログインページ</h1>
 	</div>
+	<c:if test="${errMsg != null}">
+		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
+	</c:if>
+
 	<div class="msg-area">会員ページへようこそ！</div>
 	<div class="alert3 alert-secondary" role="alert">
 		<div>ログインIDとパスワードを入力してください。</div>
 		<div>
 			<a
-				href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\user-Registration-private.html">新規会員登録はこちら</a>
+				href="SignUp">新規会員登録はこちら</a>
 		</div>
 
 	</div>
@@ -38,13 +42,8 @@
 				<label for="exampleInputPassword1">パスワード</label> <input
 					type="password" class="form-control" name="password" id="password"
 					placeholder="">
-
 			</div>
-
-			<a
-				href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\user-list-login-private.html">
-				<button type="submit" class="btn3 btn-primary">ログイン</button>
-			</a>
+			<button type="submit" class="btn3 btn-primary">ログイン</button>
 		</div>
 		<div>
 			<a href="Index">
