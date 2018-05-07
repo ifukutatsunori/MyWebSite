@@ -1,7 +1,6 @@
 package ec;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import beans.UserDataBeans;
 import dao.UserDAO;
@@ -24,8 +24,6 @@ public class UserInfo extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public UserInfo() {
-		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -33,15 +31,12 @@ public class UserInfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String id = request.getParameter("id");
-
-		System.out.println(id);
+		HttpSession session = request.getSession();
+		int id = (int) session.getAttribute("userId");
 
 		UserDAO userDao = new UserDAO();
-		List<UserDataBeans> udb = userDao.findByUserInfo(id);
-
-		request.setAttribute("userList", udb);
+		UserDataBeans user = userDao.findByUserInfo(id);
+		request.setAttribute("user", user);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.USER_DATA_PAGE);
 		dispatcher.forward(request, response);
@@ -52,12 +47,9 @@ public class UserInfo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("id");
-		System.out.println(id);
-
-
+		HttpSession session = request.getSession();
+		int id = (int) session.getAttribute("userId");
 		String password = request.getParameter("password");
 		String passwordConfirm = request.getParameter("passwordConfirm");
 		String name = request.getParameter("name");
@@ -71,8 +63,6 @@ public class UserInfo extends HttpServlet {
 			try {
 				request.setAttribute("errMsg", "パスワードと確認が一致しておりません");
 
-				List<UserDataBeans> userList = userDao.findByUserInfo(id);
-				request.setAttribute("userList", userList);
 				RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.USER_DATA_PAGE);
 				dispatcher.forward(request, response);
 				return;
@@ -80,7 +70,7 @@ public class UserInfo extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		userDao.upDate(password, name, birth_date, address, postal_code,id);
+		userDao.upDate(password, name, birth_date, address, postal_code, id);
 		response.sendRedirect("Logout");
 	}
 }

@@ -39,11 +39,24 @@
 				<button type="button" class="btn">
 					<i class="fas fa-user-plus"></i>会員登録
 				</button>
-			</a> <a href="login">
-				<button type="submit" class="btn">
-					<i class="fas fa-sign-in-alt"></i>ログイン
-				</button>
-			</a> <a href="">
+			</a>
+			<c:choose>
+				<c:when test="${user.id == null}">
+					<a href="login">
+						<button type="submit" class="btn">
+							<i class="fas fa-sign-in-alt"></i>ログイン
+						</button>
+					</a>
+				</c:when>
+				<c:when test="${user.id != null}">
+					<a href="Index">
+						<button type="submit" class="btn">
+							<i class="fas fa-sign-out-alt"></i>ログアウト
+						</button>
+					</a>
+				</c:when>
+			</c:choose>
+			<a href="">
 				<button type="button" class="btn">
 					<i class="fas fa-shopping-cart"></i>カート
 				</button>

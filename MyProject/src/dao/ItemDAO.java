@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 import base.DBManager;
 import beans.ItemDataBeans;
@@ -178,6 +180,7 @@ public class ItemDAO {
 			}
 		}
 	}
+
 	public static ArrayList<ItemDataBeans> getItemBuyHistory(String buyId) throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
@@ -209,6 +212,95 @@ public class ItemDAO {
 		} finally {
 			if (con != null) {
 				con.close();
+			}
+		}
+	}
+
+	/**
+	 * 全ての商品リスト
+	 */
+	public List<ItemDataBeans> findAll() {
+		Connection conn = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+
+		try {
+			// データベースへ接続
+			conn = DBManager.getConnection();
+
+			String sql = "SELECT * FROM m_item ";
+
+			// SELECTを実行し、結果表を取得
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			// 結果表に格納されたレコードの内容を
+			// ItemDataBeansインスタンスに設定し、ArrayListインスタンスに追加
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				String detail = rs.getString("detail");
+				int price = rs.getInt("price");
+				String tag = rs.getString("create_date");
+				int stock = rs.getInt("stock");
+				int sale = rs.getInt("sale");
+				int trend = rs.getInt("trend");
+				String file_name = rs.getString("file_name");
+				ItemDataBeans idb = new ItemDataBeans(id, name, detail, price, tag, stock, sale, trend, file_name);
+
+				itemList.add(idb);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return itemList;
+	}
+
+	/**
+	 * 商品登録
+	 */
+	public void registration(String name, String detail, int price, String tag,
+			int stock, int sale, int trend, String fileName) {
+
+		Connection conn = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+
+			String sql = "INSERT INTO m_item (name,detail,price,tag,stock,sale,trend,fileName) VALUES (?.?,?,?,?,?,?,?)";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, name);
+			pStmt.setString(2, detail);
+			pStmt.setInt(3, price);
+			pStmt.setString(4, tag);
+			pStmt.setInt(5, stock);
+			pStmt.setInt(6, sale);
+			pStmt.setInt(7, trend);
+			pStmt.setString(8, fileName);
+			pStmt.executeUpdate();
+
+			pStmt.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 	}

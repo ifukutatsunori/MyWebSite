@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 import base.DBManager;
 import beans.UserDataBeans;
@@ -92,6 +89,35 @@ public class UserDAO {
 		}
 	}
 
+	public static int getUserId(String login_Id, String password) throws SQLException {
+		Connection con = null;
+		PreparedStatement st = null;
+		try {
+			con = DBManager.getConnection();
+
+			st = con.prepareStatement("SELECT * FROM t_user WHERE login_id = ?");
+			st.setString(1, login_Id);
+
+			ResultSet rs = st.executeQuery();
+
+			int userId = 0;
+			while (rs.next()) {
+					userId = rs.getInt("id");
+					break;
+				}
+
+			System.out.println("searching userId by loginId has been completed");
+			return userId;
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+			throw new SQLException(e);
+		} finally {
+			if (con != null) {
+				con.close();
+			}
+		}
+	}
+
 	public void signUp(String login_id, String name, String birth_date, String password, String address,
 			String phone_number, String postal_code, String mail_address) {
 
@@ -129,32 +155,28 @@ public class UserDAO {
 		}
 	}
 
-	public List<UserDataBeans> findByUserInfo(String selectId) {
+	public UserDataBeans findByUserInfo(int id) {
 		//指定したIDのテーブルデータを参照するメソット//
 		Connection conn = null;
-		List<UserDataBeans> userList = new ArrayList<UserDataBeans>();
 		try {
 			conn = DBManager.getConnection();
 
 			String sql = "SELECT * FROM t_user WHERE id = ?";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1, selectId);
+			pStmt.setInt(1, id);
 
 			ResultSet rs = pStmt.executeQuery();
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
 				String login_id = rs.getString("login_id");
-				String password = rs.getString("password");
 				String name = rs.getString("name");
-				Date birth_date = rs.getDate("birth_date");
+				String birth_date = rs.getString("birth_date");
 				String address = rs.getString("address");
 				String postal_code = rs.getString("postal_code");
-				UserDataBeans udb = new UserDataBeans(id, login_id, password, name, birth_date, address, postal_code);
-				udb.setBirthDateFmt(birth_date);
 
-				userList.add(udb);
+				UserDataBeans udb = new UserDataBeans(id,login_id, name, birth_date, address, postal_code);
+				return udb;
 			}
 
 		} catch (SQLException e) {
@@ -172,10 +194,10 @@ public class UserDAO {
 
 			}
 		}
-		return userList;
+		return null;
 	}
 
-	public void upDate(String password, String name, String birth_date, String address, String postal_code, String id) {
+	public void upDate(String password, String name, String birth_date, String address, String postal_code, int id) {
 		//テーブル内に格納されているデータを更新上書きするメソット//
 		Connection conn = null;
 
@@ -191,7 +213,7 @@ public class UserDAO {
 			pStmt.setString(3, birth_date);
 			pStmt.setString(4, address);
 			pStmt.setString(5, postal_code);
-			pStmt.setString(6, id);
+			pStmt.setInt(6, id);
 			pStmt.executeUpdate();
 
 			pStmt.close();

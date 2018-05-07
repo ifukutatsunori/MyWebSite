@@ -26,11 +26,17 @@ public class UserDataBeans implements Serializable {
 
 	//ログインに使用するコンストラクター//
 	public UserDataBeans(String loginIdData, String nameData) {
+		this.login_id = loginIdData;
+		this.name = nameData;
 	}
 
-	public UserDataBeans(int id, String login_id, String password, String name, Date birth_date, String address,
-			String postal_code) {
-		// TODO 自動生成されたコンストラクター・スタブ
+	public UserDataBeans(int id, String login_id, String name, String birth_date, String address, String postal_code) {
+		this.id = id;
+		this.login_id = login_id;
+		this.name = name;
+		this.birth_date = birth_date;
+		this.address = address;
+		this.postal_code = postal_code;
 	}
 
 	public int getId() {

@@ -24,21 +24,27 @@
 
 		<div class="card-body">
 
-			<!--管理者でログインした場合のみマスタページへ遷移-->
-			<a class="card-title"> 管理者さん </a>
+			<!--管理者でログインした場合のみマスタページのボタンが表示される-->
 
-			<form action="UpDateServlet" method="post">
-
+			<c:if test="${user.id == 1}">
+				<a href="/Logout">
+					<button type="submit" class="btn2 btn-primary">　　商品管理　　</button>
+				</a>
+			</c:if>
+			<form name="form_test">
+				<input type="hidden" name="id" value="${user.id}">
+			</form>
+			<form action="UserInfo" method="post">
 				<div class="user-form-area">
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
-							<input type="hidden" name="id" value="${udb.id}"> <input
-								type="hidden" name="updateDate" value="now()"> <label></label>
+
 							<span class="input-group-text" id="inputGroup-sizing-default">
 								ログインID </span>
 						</div>
 						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default" value="${udb.login_id}">
+							name="login_id" aria-describedby="inputGroup-sizing-default"
+							value="${user.login_id}">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -46,7 +52,7 @@
 								パスワード </span>
 						</div>
 						<input type="password" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default"
+							name="password" aria-describedby="inputGroup-sizing-default"
 							placeholder="">
 					</div>
 					<div class="input-group mb-3">
@@ -54,8 +60,8 @@
 							<span class="input-group-text" id="inputGroup-sizing-default">パスワード確認</span>
 						</div>
 						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default"
-							placeholder="">
+							name="passwordConfirm"
+							aria-describedby="inputGroup-sizing-default" placeholder="">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -63,15 +69,16 @@
 								氏名 </span>
 						</div>
 						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default" value="${udb.name}">
+							name="name" aria-describedby="inputGroup-sizing-default"
+							value="${user.name}">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">生年月日</span>
 						</div>
 						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default"
-							value="${udb.birth_date}">
+							name="birth_date" aria-describedby="inputGroup-sizing-default"
+							value="${user.birth_date}">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -79,22 +86,23 @@
 								住所 </span>
 						</div>
 						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default" value="${udb.address}">
+							name="address" aria-describedby="inputGroup-sizing-default"
+							value="${user.address}">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">郵便番号</span>
 						</div>
 						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default"
-							value="${udb.postal_code}">
+							name="postal_code" aria-describedby="inputGroup-sizing-default"
+							value="${user.postal_code}">
 					</div>
-					<a
-						href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\user-list-private.html">
+					<a href="/Logout">
 						<button type="submit" class="btn2 btn-primary">更新</button>
 					</a>
 				</div>
 			</form>
+
 		</div>
 	</div>
 	<div class="table-area2">

@@ -28,24 +28,31 @@ public class Login extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String login_id = request.getParameter("login_id");
-		String password = request.getParameter("password");
-
-		UserDAO userDao = new UserDAO();
-		UserDataBeans udb = userDao.findByLoginInfo(login_id, password);
-
-		if (udb == null) {
-
-			request.setAttribute("errMsg", "ログインに失敗しました。");
-
-			RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.LOGIN_PAGE);
-			dispatcher.forward(request, response);
-			return;
-		}
-
 		HttpSession session = request.getSession();
-		session.setAttribute("userInfo", udb);
-		response.sendRedirect("Logout");
+		try {
+			String login_id = request.getParameter("login_id");
+			String password = request.getParameter("password");
+
+			UserDAO userDao = new UserDAO();
+			UserDataBeans udb = userDao.findByLoginInfo(login_id, password);
+			if (udb == null) {
+
+				request.setAttribute("errMsg", "ログインに失敗しました。");
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.LOGIN_PAGE);
+				dispatcher.forward(request, response);
+				return;
+			}
+
+			int userId = UserDAO.getUserId(login_id, password);
+			session.setAttribute("userId", userId);
+			System.out.println(userId);
+			response.sendRedirect("Index");
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			session.setAttribute("errorMessage", e.toString());
+			response.sendRedirect("Error");
+		}
 	}
 }
