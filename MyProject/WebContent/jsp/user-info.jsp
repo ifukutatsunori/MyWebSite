@@ -27,7 +27,7 @@
 			<!--管理者でログインした場合のみマスタページのボタンが表示される-->
 
 			<c:if test="${user.id == 1}">
-				<a href="/Logout">
+				<a href="Item_Master">
 					<button type="submit" class="btn2 btn-primary">　　商品管理　　</button>
 				</a>
 			</c:if>

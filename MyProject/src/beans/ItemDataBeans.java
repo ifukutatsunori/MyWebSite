@@ -3,6 +3,7 @@ package beans;
 import java.io.Serializable;
 
 public class ItemDataBeans implements Serializable {
+
 	private int id;
 	private String name;
 	private String detail;
@@ -11,11 +12,22 @@ public class ItemDataBeans implements Serializable {
 	private int stock;
 	private int sale;
 	private int trend;
-	private String fileName;
+	private String file_name;
+	private String create_date;
 
-	public ItemDataBeans(int id, String name, String detail, int price, String tag, int stock, int sale,
-			int trend, String file_name) {
-		// TODO 自動生成されたコンストラクター・スタブ
+	public ItemDataBeans(int id, String name, String detail, int price, String tag, int stock, int sale, int trend,
+			String file_name, String create_date) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.detail = detail;
+		this.price = price;
+		this.tag = tag;
+		this.stock = stock;
+		this.sale = sale;
+		this.trend = trend;
+		this.file_name = file_name;
+		this.setCreate_date(create_date);
 	}
 
 	public ItemDataBeans() {
@@ -86,11 +98,20 @@ public class ItemDataBeans implements Serializable {
 		this.trend = trend;
 	}
 
-	public String getFileName() {
-		return fileName;
+	public String getFile_name() {
+		return file_name;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFileName(String file_name) {
+		this.file_name = file_name;
 	}
+
+	public String getCreate_date() {
+		return create_date;
+	}
+
+	public void setCreate_date(String create_date) {
+		this.create_date = create_date;
+	}
+
 }

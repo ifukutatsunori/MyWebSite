@@ -64,14 +64,14 @@ public class ItemDAO {
 	 * @return ItemDataBeans
 	 * @throws SQLException
 	 */
-	public static ItemDataBeans getItemByItemID(int itemId) throws SQLException {
+	public ItemDataBeans getItemByItemID(String id) throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
 			con = DBManager.getConnection();
 
 			st = con.prepareStatement("SELECT * FROM m_item WHERE id = ?");
-			st.setInt(1, itemId);
+			st.setString(1, id);
 
 			ResultSet rs = st.executeQuery();
 
@@ -79,9 +79,11 @@ public class ItemDAO {
 			if (rs.next()) {
 				item.setId(rs.getInt("id"));
 				item.setName(rs.getString("name"));
-				item.setDetail(rs.getString("detail"));
 				item.setPrice(rs.getInt("price"));
+				item.setTag(rs.getString("tag"));
+				item.setStock(rs.getInt("stock"));
 				item.setFileName(rs.getString("file_name"));
+				item.setDetail(rs.getString("detail"));
 			}
 
 			System.out.println("searching item by itemID has been completed");
@@ -234,18 +236,20 @@ public class ItemDAO {
 			ResultSet rs = stmt.executeQuery(sql);
 
 			// 結果表に格納されたレコードの内容を
-			// ItemDataBeansインスタンスに設定し、ArrayListインスタンスに追加
+			// ItemDataBeansインスタンスに設定し、Listインスタンスに追加
 			while (rs.next()) {
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String detail = rs.getString("detail");
 				int price = rs.getInt("price");
-				String tag = rs.getString("create_date");
+				String tag = rs.getString("tag");
 				int stock = rs.getInt("stock");
 				int sale = rs.getInt("sale");
 				int trend = rs.getInt("trend");
 				String file_name = rs.getString("file_name");
-				ItemDataBeans idb = new ItemDataBeans(id, name, detail, price, tag, stock, sale, trend, file_name);
+				String create_date = rs.getString("create_date");
+				ItemDataBeans idb = new ItemDataBeans(id, name, detail, price, tag, stock, sale, trend, file_name,
+						create_date);
 
 				itemList.add(idb);
 			}
@@ -268,8 +272,8 @@ public class ItemDAO {
 	/**
 	 * 商品登録
 	 */
-	public void registration(String name, String detail, int price, String tag,
-			int stock, int sale, int trend, String fileName) {
+	public void registration(String name, String price, String tag,
+			String stock, String fileName, String detail, String sale, String trend) {
 
 		Connection conn = null;
 
@@ -277,17 +281,56 @@ public class ItemDAO {
 
 			conn = DBManager.getConnection();
 
-			String sql = "INSERT INTO m_item (name,detail,price,tag,stock,sale,trend,fileName) VALUES (?.?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO m_item (name,price,tag,stock,file_name,detail,sale,trend,create_date) VALUES (?,?,?,?,?,?,?,?,now())";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, name);
-			pStmt.setString(2, detail);
-			pStmt.setInt(3, price);
-			pStmt.setString(4, tag);
-			pStmt.setInt(5, stock);
-			pStmt.setInt(6, sale);
-			pStmt.setInt(7, trend);
-			pStmt.setString(8, fileName);
+			pStmt.setString(2, price);
+			pStmt.setString(3, tag);
+			pStmt.setString(4, stock);
+			pStmt.setString(5, fileName);
+			pStmt.setString(6, detail);
+			pStmt.setString(7, sale);
+			pStmt.setString(8, trend);
+			pStmt.executeUpdate();
+
+			pStmt.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return;
+	}
+
+	public void upDate(String name, String price, String tag,
+			String stock, String fileName, String detail, String sale, String trend, String id) {
+		//テーブル内に格納されているデータを更新上書きするメソット//
+		Connection conn = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+
+			String sql = "UPDATE m_item SET name=?, price=?, tag=?,stock=?, file_name=?, detail=?,sale=?, trend=? WHERE id=? ";
+
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			pStmt.setString(1, name);
+			pStmt.setString(2, price);
+			pStmt.setString(3, tag);
+			pStmt.setString(4, stock);
+			pStmt.setString(5, fileName);
+			pStmt.setString(6, detail);
+			pStmt.setString(7, sale);
+			pStmt.setString(8, trend);
+			pStmt.setString(9, id);
 			pStmt.executeUpdate();
 
 			pStmt.close();
