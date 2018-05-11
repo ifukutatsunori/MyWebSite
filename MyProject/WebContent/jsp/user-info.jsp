@@ -136,7 +136,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<a href="Logout">
+		<a href="Index">
 			<button type="button" class="btn-return btn-link">戻る</button>
 		</a>
 	</div>

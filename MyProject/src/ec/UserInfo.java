@@ -71,6 +71,6 @@ public class UserInfo extends HttpServlet {
 			}
 		}
 		userDao.upDate(password, name, birth_date, address, postal_code, id);
-		response.sendRedirect("Logout");
+		response.sendRedirect("Index");
 	}
 }

@@ -31,7 +31,7 @@
 
 		<div class="button-area">
 
-			<a href="">
+			<a href="UserInfo">
 				<button type="button" class="btn">
 					<i class="far fa-user"></i>アカウント
 				</button>
@@ -49,7 +49,7 @@
 					</a>
 				</c:when>
 				<c:when test="${user.id != null}">
-					<a href="Index">
+					<a href="Logout">
 						<button type="submit" class="btn">
 							<i class="fas fa-sign-out-alt"></i>ログアウト
 						</button>
@@ -67,11 +67,14 @@
 		<ul id="normal" class="dropmenu">
 			<li><a href="#">Shop Category</a>
 				<ul>
-					<li><a href="#">ALL ITEM</a></li>
-					<li><a href="#">TOPS</a></li>
-					<li><a href="#">BOTTOMS</a></li>
-					<li><a href="#">OUTER</a></li>
+
+					<li><a href="Index">ALL ITEM</a></li>
+					<li><a href="Item_Tag_Search?tag=TOPS">TOPS</a></li>
+					<li><a href="Item_Tag_Search?tag=BOTTOMS">BOTTOMS</a></li>
+					<li><a href="Item_Tag_Search?tag=OUTER">OUTER</a></li>
+
 				</ul></li>
+
 			<li><a href="#">Pickup</a>
 				<ul>
 					<li><a href="#">NEW</a></li>
@@ -110,7 +113,23 @@
 		<img src="" class="img-fluid" width="1100" height="300">
 	</div>
 
-
+	<div class="container">
+		<div class="row">
+			<c:forEach var="idb" items="${idb}">
+				<div class="col-sm">
+					<div class="card" style="width: 16rem;">
+						<img class="card-img-top" src="${idb.file_name}"
+							alt="Card image cap">
+						<div class="card-body">
+							<div>商品名</div>
+							<div>${idb.name}</div>
+							<div>商品価格 ${idb.price}円</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+	</div>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
 	</p>

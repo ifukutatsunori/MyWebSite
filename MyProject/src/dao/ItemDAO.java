@@ -269,6 +269,49 @@ public class ItemDAO {
 		return itemList;
 	}
 
+	public List<ItemDataBeans> findSearch(String tag) {
+
+		Connection conn = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+		PreparedStatement st = null;
+
+		try {
+
+			conn = DBManager.getConnection();
+
+			st = conn.prepareStatement("SELECT * FROM m_item WHERE tag=?");
+
+			st.setString(1, tag);
+			ResultSet rs = st.executeQuery();
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				int price = rs.getInt("price");
+
+				ItemDataBeans idb = new ItemDataBeans(id, name, price);
+
+				itemList.add(idb);
+			}
+		} catch (
+
+		SQLException e) {
+			e.printStackTrace();
+			return null;
+		} finally {
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return itemList;
+	}
+
 	/**
 	 * 商品登録
 	 */

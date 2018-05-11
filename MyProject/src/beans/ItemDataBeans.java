@@ -30,6 +30,13 @@ public class ItemDataBeans implements Serializable {
 		this.setCreate_date(create_date);
 	}
 
+	public ItemDataBeans(int id, String name, int price) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+	}
+
 	public ItemDataBeans() {
 		// TODO 自動生成されたコンストラクター・スタブ
 	}
