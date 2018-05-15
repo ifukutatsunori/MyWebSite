@@ -21,8 +21,6 @@
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-
-
 </head>
 <body>
 	<div class="alert" role="alert">
@@ -78,8 +76,8 @@
 			<li><a href="#">Pickup</a>
 				<ul>
 					<li><a href="#">NEW</a></li>
-					<li><a href="#">SALE</a></li>
-					<li><a href="#">TREND</a></li>
+					<li><a href="Item_PicUp?sale=1">SALE</a></li>
+					<li><a href="Item_PicUp?trend=1">TREND</a></li>
 				</ul></li>
 			<li><a href="#">menu</a>
 				<ul>
@@ -109,17 +107,13 @@
 		</ul>
 	</div>
 
-	<div class="img">
-		<img src="" class="img-fluid" width="1100" height="300">
-	</div>
-
-	<div class="container">
+	<div class="container1">
 		<div class="row">
 			<c:forEach var="idb" items="${idb}">
 				<div class="col-sm">
 					<div class="card" style="width: 16rem;">
-						<img class="card-img-top" src="${idb.file_name}"
-							alt="Card image cap">
+						<img class="card-img-top" height="280"
+							src="private-work-Picture/${idb.file_name}" alt="Card image cap">
 						<div class="card-body">
 							<div>商品名</div>
 							<div>${idb.name}</div>

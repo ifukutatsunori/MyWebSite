@@ -83,10 +83,7 @@
 						</div>
 						<input type="checkbox" name="sale" value="1">
 					</div>
-					<a
-						href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\item-list-master-private.html">
-						<button type="submit" class="btn2 btn-primary">更新</button>
-					</a>
+					<button type="submit" class="btn2 btn-primary">更新</button>
 				</div>
 				<a href="Item_Master">
 					<button type="button" class="btn-return2 btn-link">戻る</button>

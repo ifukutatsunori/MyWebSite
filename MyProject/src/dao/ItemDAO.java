@@ -288,8 +288,8 @@ public class ItemDAO {
 				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				int price = rs.getInt("price");
-
-				ItemDataBeans idb = new ItemDataBeans(id, name, price);
+				String file_name = rs.getString("file_name");
+				ItemDataBeans idb = new ItemDataBeans(id, name, price, file_name);
 
 				itemList.add(idb);
 			}
@@ -298,6 +298,49 @@ public class ItemDAO {
 		SQLException e) {
 			e.printStackTrace();
 			return null;
+		} finally {
+
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+					return null;
+				}
+			}
+		}
+		return itemList;
+	}
+
+	public List<ItemDataBeans> pickUp(String trend, String sale) {
+
+		Connection conn = null;
+		List<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
+		PreparedStatement st = null;
+
+		try {
+			conn = DBManager.getConnection();
+
+			if (trend != null) {
+				st = conn.prepareStatement("SELECT * FROM m_item WHERE trend = ? ");
+				st.setString(1, trend);
+			} else if (sale != null) {
+				st = conn.prepareStatement("SELECT * FROM m_item WHERE sale = ? ");
+				st.setString(1, sale);
+			}
+
+			ResultSet rs = st.executeQuery();
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String name = rs.getString("name");
+				int price = rs.getInt("price");
+				String file_name = rs.getString("file_name");
+				ItemDataBeans idb = new ItemDataBeans(id, name, price, file_name);
+				itemList.add(idb);
+			}
+		} catch (Exception e) {
+
+			// TODO: handle exception
 		} finally {
 
 			if (conn != null) {

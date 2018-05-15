@@ -27,19 +27,24 @@ public class Index extends HttpServlet {
 		ItemDAO itemDao = new ItemDAO();
 		List<ItemDataBeans> idb = itemDao.findAll();
 		request.setAttribute("idb", idb);
-		try {
-			int id = (int) session.getAttribute("userId");
 
-			UserDAO userDao = new UserDAO();
-			UserDataBeans user = userDao.findByUserInfo(id);
-			request.setAttribute("user", user);
+		try {
+			if (null != session.getAttribute("userId")) {
+				int id = (int) session.getAttribute("userId");
+
+				UserDAO userDao = new UserDAO();
+				UserDataBeans user = userDao.findByUserInfo(id);
+				request.setAttribute("user", user);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.TOP_PAGE);
+				dispatcher.forward(request, response);
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.TOP_PAGE);
+				dispatcher.forward(request, response);
+			}
 
 		} catch (Exception e) {
-			RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.TOP_PAGE);
-			dispatcher.forward(request, response);
+			e.printStackTrace();
 		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.TOP_PAGE);
-		dispatcher.forward(request, response);
 	}
 }

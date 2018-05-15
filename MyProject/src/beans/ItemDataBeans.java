@@ -30,11 +30,12 @@ public class ItemDataBeans implements Serializable {
 		this.setCreate_date(create_date);
 	}
 
-	public ItemDataBeans(int id, String name, int price) {
+	public ItemDataBeans(int id, String name, int price, String file_name) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
+		this.file_name = file_name;
 	}
 
 	public ItemDataBeans() {
