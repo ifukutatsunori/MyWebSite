@@ -19,7 +19,6 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" type="text/css" href="css/origin/slick.css">
 
 </head>
 <body>
@@ -107,34 +106,101 @@
 		</ul>
 	</div>
 
-	<div class="your-class">
-		<div>
-			<img src="private-work-Picture/images (1).jpg" alt="">
+	<div id="carouselExampleIndicators" class="carousel slide"
+		data-ride="carousel">
+		<ol class="carousel-indicators">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner">
+			<div class="carousel-item active">
+				<img class="d-block w-100"
+					src="private-work-Picture/1200x300 (1).jpg" alt="First slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100" height="325"
+					src="private-work-Picture/n-1200x300 (2).jpg" alt="Second slide">
+			</div>
+			<div class="carousel-item">
+				<img class="d-block w-100"
+					src="private-work-Picture/1200x300 (3).jpg" alt="Third slide">
+			</div>
 		</div>
-		<div>
-			<img src="private-work-Picture/images (2).jpg" alt="">
-		</div>
-		<div>
-			<img src="private-work-Picture/images (3).jpg" alt="">
-		</div>
+		<a class="carousel-control-prev" href="#carouselExampleIndicators"
+			role="button" data-slide="prev"> <span
+			class="carousel-control-prev-icon" aria-hidden="true"></span> <span
+			class="sr-only">Previous</span>
+		</a> <a class="carousel-control-next" href="#carouselExampleIndicators"
+			role="button" data-slide="next"> <span
+			class="carousel-control-next-icon" aria-hidden="true"></span> <span
+			class="sr-only">Next</span>
+		</a>
 	</div>
 
-	<div class="container">
-		<div class="row">
-			<c:forEach var="idb" items="${idb}">
-				<div class="col-sm">
-					<div class="card" style="width: 16rem;">
-						<img class="card-img-top" height="320"
-							src="private-work-Picture/${idb.file_name}" alt="Card image cap">
-						<div class="card-body">
-							<div>商品名</div>
-							<div>${idb.name}</div>
-							<div>商品価格 ${idb.price}円</div>
+	<div id="content">
+		<div id="main">
+			<div class="container">
+				<div class="row">
+					<c:forEach var="idb" items="${idb}">
+						<div class="col-sm">
+							<div class="card" style="width: 14rem;">
+								<img class="card-img-top" height="280"
+									src="private-work-Picture/${idb.file_name}"
+									alt="Card image cap">
+								<div class="card-body">
+									<div>商品名</div>
+									<div>${idb.name}</div>
+									<div>商品価格 ${idb.price}円</div>
+								</div>
+							</div>
 						</div>
-					</div>
+					</c:forEach>
 				</div>
-			</c:forEach>
+			</div>
 		</div>
+
+		<nav>
+			<div class="contents">
+				<ul class="nav">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Strategy</a>
+						<ul>
+							<li><a href="#">b1</a></li>
+							<li><a href="#">b1</a>
+								<ul>
+									<li><a href="#">b2</a></li>
+									<li><a href="#">b2</a></li>
+								</ul></li>
+						</ul></li>
+					<li><a href="#">About</a>
+						<ul>
+							<li><a href="#">c1</a></li>
+							<li><a href="#">c1</a></li>
+						</ul></li>
+					<li><a href="#">Works</a>
+						<ul>
+							<li><a href="#">d1</a></li>
+							<li><a href="#">d1</a>
+								<ul>
+									<li><a href="#">d2</a></li>
+									<li><a href="#">d2</a></li>
+								</ul></li>
+						</ul></li>
+					<li><a href="#">Contact</a>
+						<ul>
+							<li><a href="#">e1</a></li>
+							<li><a href="#">e1</a>
+								<ul>
+									<li><a href="#">e2</a></li>
+									<li><a href="#">e2</a></li>
+								</ul></li>
+						</ul></li>
+					<!--nav-->
+				</ul>
+			</div>
+		</nav>
 	</div>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
@@ -168,21 +234,12 @@
 
 		});
 	</script>
-	<script>
-		$(document).ready(function() {
-			$('.your-class').slick({
-				autoplay : true,
-				adaptiveHeight : true,
-				arrows : true,
-				prevArrow : '<div class="prev">←</div>',
-				nextArrow : '<div class="next">→</div>'
-			});
-		});
-	</script>
+
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/slick.js" type="text/css"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 
 </body>
 <div class="alert2" role="alert"></div>

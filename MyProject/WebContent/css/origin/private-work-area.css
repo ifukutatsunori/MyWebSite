@@ -213,7 +213,6 @@
 .img {
 	margin: 0 auto;
 	text-align: center;
-	A
 }
 
 .custom-select {
@@ -230,4 +229,31 @@
 
 .card-area {
 
+}
+
+.carousel{
+   width:1300px;  /*サイズ指定*/
+   margin:auto;
+   padding-bottom: 30px;
+}
+}
+.carousel img{
+   width:100%;
+   height: 325px;
+}
+
+div#content {
+width: 100%;
+overflow: hidden;
+}
+
+div#main {
+width: 80%;
+float: right;
+}
+
+nav {
+width: 20%;
+float: left;
+padding-left: 6%;
 }
