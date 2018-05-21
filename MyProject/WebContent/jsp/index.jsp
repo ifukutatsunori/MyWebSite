@@ -18,8 +18,8 @@
 	href="css/origin/private-work-drop-menu.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/origin/slick.css">
 
 </head>
 <body>
@@ -107,12 +107,24 @@
 		</ul>
 	</div>
 
-	<div class="container1">
+	<div class="your-class">
+		<div>
+			<img src="private-work-Picture/images (1).jpg" alt="">
+		</div>
+		<div>
+			<img src="private-work-Picture/images (2).jpg" alt="">
+		</div>
+		<div>
+			<img src="private-work-Picture/images (3).jpg" alt="">
+		</div>
+	</div>
+
+	<div class="container">
 		<div class="row">
 			<c:forEach var="idb" items="${idb}">
 				<div class="col-sm">
 					<div class="card" style="width: 16rem;">
-						<img class="card-img-top" height="280"
+						<img class="card-img-top" height="320"
 							src="private-work-Picture/${idb.file_name}" alt="Card image cap">
 						<div class="card-body">
 							<div>商品名</div>
@@ -156,6 +168,22 @@
 
 		});
 	</script>
-</body>
+	<script>
+		$(document).ready(function() {
+			$('.your-class').slick({
+				autoplay : true,
+				adaptiveHeight : true,
+				arrows : true,
+				prevArrow : '<div class="prev">←</div>',
+				nextArrow : '<div class="next">→</div>'
+			});
+		});
+	</script>
+	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/slick.js" type="text/css"></script>
+
+</body>
+<div class="alert2" role="alert"></div>
 </html>
