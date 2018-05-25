@@ -45,8 +45,11 @@ public class Login extends HttpServlet {
 			}
 
 			int userId = UserDAO.getUserId(login_id, password);
-			session.setAttribute("userId", userId);
-			System.out.println(userId);
+			if (userId != 0) {
+				session.setAttribute("LoginStatus", true);
+				session.setAttribute("userId", userId);
+
+			}
 			response.sendRedirect("Index");
 
 		} catch (Exception e) {

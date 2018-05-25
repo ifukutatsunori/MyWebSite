@@ -29,6 +29,7 @@ public class Index extends HttpServlet {
 		request.setAttribute("idb", idb);
 
 		try {
+			//ログイン状況で表示されるボタンを変更する為の処理
 			if (null != session.getAttribute("userId")) {
 				int id = (int) session.getAttribute("userId");
 

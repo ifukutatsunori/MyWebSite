@@ -3,8 +3,8 @@ package beans;
 public class DeliveryMethodDataBeans {
 
 	private int id;
-	private int buyId;
-	private int itemId;
+	private String name;
+	private int price;
 
 	public int getId() {
 		return id;
@@ -14,19 +14,19 @@ public class DeliveryMethodDataBeans {
 		this.id = id;
 	}
 
-	public int getBuyId() {
-		return buyId;
+	public String getName() {
+		return name;
 	}
 
-	public void setBuyId(int buyId) {
-		this.buyId = buyId;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public int getItemId() {
-		return itemId;
+	public int getPrice() {
+		return price;
 	}
 
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 }

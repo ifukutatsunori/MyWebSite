@@ -16,12 +16,14 @@ public class EcHelper {
 	static final String TOP_PAGE = "/jsp/index.jsp";
 	// エラーページ **未実装**
 	static final String ERROR_PAGE = "/error.jsp";
+	// 商品詳細ページ
+	static final String ITEM_INFO_PAGE = "/jsp/item-info.jsp";
 	// 買い物かごページ
 	static final String CART_PAGE = "/jsp/cart.jsp";
 	// 購入
 	static final String BUY_PAGE = "/jsp/buy.jsp";
 	// 購入確認
-	static final String BUY_CONFIRM_PAGE = "/jsp/buy-confirmation.jsp";
+	static final String BUY_CONFIRM_PAGE = "/jsp/buy-confirm.jsp";
 	// 購入完了
 	static final String BUY_RESULT_PAGE = "/jsp/buy-result.jsp";
 	// ユーザー情報
@@ -34,8 +36,6 @@ public class EcHelper {
 	static final String USER_BUY_HISTORY_DETAIL_PAGE = "/jsp/buy-history.jsp";
 	// ログイン
 	static final String LOGIN_PAGE = "/jsp/login.jsp";
-	// ログアウト **未実装**
-	static final String LOGOUT_PAGE = "/jsp/index-login.jsp";
 	// 新規登録
 	static final String REGIST_PAGE = "/jsp/user-Registration.jsp";
 	// 新規登録入力内容確認 **未実装**

@@ -53,7 +53,7 @@
 					</a>
 				</c:when>
 			</c:choose>
-			<a href="">
+			<a href="Cart">
 				<button type="button" class="btn">
 					<i class="fas fa-shopping-cart"></i>カート
 				</button>
@@ -144,18 +144,17 @@
 			<div class="container">
 				<div class="row">
 					<c:forEach var="idb" items="${idb}">
-						<div class="col-sm">
-							<div class="card" style="width: 14rem;">
-								<img class="card-img-top" height="280"
-									src="private-work-Picture/${idb.file_name}"
-									alt="Card image cap">
-								<div class="card-body">
-									<div>商品名</div>
-									<div>${idb.name}</div>
-									<div>商品価格 ${idb.price}円</div>
+							<div class="col-sm" >
+								<div class="card" style="width: 14rem;">
+									<img class="card-img-top" height="280"
+										src="private-work-Picture/${idb.file_name}"
+										alt="Card image cap">
+									<div class="card-body">
+										<div><a href="Item_info?id=${idb.id}">${idb.name}</a></div>
+										<div>価格 ${idb.price}円</div>
+									</div>
 								</div>
 							</div>
-						</div>
 					</c:forEach>
 				</div>
 			</div>

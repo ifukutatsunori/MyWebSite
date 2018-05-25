@@ -1,58 +1,66 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 
 <title>カート参照/購入フォーム</title>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="css/origin/private-work-area.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.10/css/all.css"
+	integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+	crossorigin="anonymous">
+<link rel="stylesheet" type="text/css"
+	href="css/origin/private-work-area.css">
 
 </head>
 <body>
 
-<div class="alert2" role="alert">
-      <h1 class="title-area">カート詳細/購入</h1>
-      </div>
-      <div>
-		<a href="#" class="btn4 btn-secondary btn-lg">　　削　除　　　<i class="far fa-trash-alt"></i></a>
-		<a href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\buy-private.html" class="btn4 btn-success btn-lg">　レジに進む　　<i class="fas fa-hand-holding-usd"></i></a>
-</div>
-  <div class="item-list-area">
-  <div class="container">
-  <div class="row">
-  <div class="col">
-  <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="C:\Users\tatsu\Documents\git\MyWebSite\Mock\private-work-Picture\sample.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">サンプルコート</h5>
-    <p class="card-text">保温性が高く丈夫な生地で、肌さわりも良い寒い日でもしっかり体を温めてくれるコートになっております。</p>
-     <p class="card-text">価格：20000円</p>
-    <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">削除</label><i class="fas fa-cart-arrow-down"></i>
-  </div>
-  </div>
-</div>
-  </div>
-  <div class="col">
-  <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="C:\Users\tatsu\Documents\git\MyWebSite\Mock\private-work-Picture\sample.jpg" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">サンプルパーカー</h5>
-    <p class="card-text">撥水性と通気性を両立させた生地を使い、雨の日でも着れ晴れた日も汗で蒸れにくい汎用性の高いパーカーになっております。</p>
-     <p class="card-text">価格：10000円</p>
-     <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">削除</label><i class="fas fa-cart-arrow-down"></i>
-    </div>
-   </div>
-</div>
-  </div>
-</div>
-
-<a href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\user-list-private.html">
-	     <button type="button" class="btn-return2 btn-link">　戻る　</button>
-	     </a>
-</div>
+	<div class="alert2" role="alert">
+		<h1 class="title-area">カート詳細/購入</h1>
+	</div>
+	<c:if test="${errMsg != null}">
+		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
+	</c:if>
+	<form action="Cart" method="POST">
+		<div>
+			<button type="submit" class="btn4 btn-secondary btn-lg" name="action">
+				削 除 <i class="far fa-trash-alt"></i>
+			</button>
+			<a href="Buy" class="btn4 btn-success btn-lg"> レジに進む <i
+				class="fas fa-hand-holding-usd"></i>
+			</a>
+		</div>
+		<div class="item-list-area">
+			<div class="container">
+				<div class="row">
+					<c:forEach var="cart" items="${cart}">
+						<div class="col">
+							<div class="card" style="width: 18rem;">
+								<img class="card-img-top" height="360"
+									src="private-work-Picture/${cart.file_name}"
+									alt="Card image cap">
+								<div class="card-body">
+									<h5 class="card-title">${cart.name}</h5>
+									<p class="card-text">${cart.detail}</p>
+									<p class="card-text">価格${cart.price}円</p>
+									<div class="form-check">
+										<input type="checkbox" class="form-check-input"
+											name="delete_id" id="deleteCheck" value="${cart.id}">
+										<label class="form-check-label" for="exampleCheck1">削除</label><i
+											class="fas fa-cart-arrow-down"></i>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+			</div>
+			<a href="Index">
+				<button type="button" class="btn-return2 btn-link">戻る</button>
+			</a>
+		</div>
+	</form>
 </body>
 </html>
