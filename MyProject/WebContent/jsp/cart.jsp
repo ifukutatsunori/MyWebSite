@@ -56,10 +56,10 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div>
-			<a href="Index">
+				<a href="Index">
 				<button type="button" class="btn-return2 btn-link">戻る</button>
 			</a>
+			</div>
 		</div>
 	</form>
 </body>

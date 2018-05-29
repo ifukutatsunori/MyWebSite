@@ -160,46 +160,7 @@
 			</div>
 		</div>
 
-		<nav>
-			<div class="contents">
-				<ul class="nav">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Strategy</a>
-						<ul>
-							<li><a href="#">b1</a></li>
-							<li><a href="#">b1</a>
-								<ul>
-									<li><a href="#">b2</a></li>
-									<li><a href="#">b2</a></li>
-								</ul></li>
-						</ul></li>
-					<li><a href="#">About</a>
-						<ul>
-							<li><a href="#">c1</a></li>
-							<li><a href="#">c1</a></li>
-						</ul></li>
-					<li><a href="#">Works</a>
-						<ul>
-							<li><a href="#">d1</a></li>
-							<li><a href="#">d1</a>
-								<ul>
-									<li><a href="#">d2</a></li>
-									<li><a href="#">d2</a></li>
-								</ul></li>
-						</ul></li>
-					<li><a href="#">Contact</a>
-						<ul>
-							<li><a href="#">e1</a></li>
-							<li><a href="#">e1</a>
-								<ul>
-									<li><a href="#">e2</a></li>
-									<li><a href="#">e2</a></li>
-								</ul></li>
-						</ul></li>
-					<!--nav-->
-				</ul>
-			</div>
-		</nav>
+
 	</div>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
@@ -241,5 +202,7 @@
 	<script src="js/bootstrap.min.js"></script>
 
 </body>
+<footer>
 <div class="alert2" role="alert"></div>
+</footer>
 </html>

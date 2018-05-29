@@ -129,7 +129,7 @@ public class BuyDetailDAO {
 		}
 	}
 
-	public static int getBuyId(int userId) throws SQLException {
+	public int getBuyId(int userId) throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
 		con = DBManager.getConnection();

@@ -93,7 +93,7 @@
 	</div>
 	</form>
 	<a
-		href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\user-list-private.html">
+		href="Index">
 		<button type="button" class="btn-return btn-link">戻る</button>
 	</a>
 	</body>

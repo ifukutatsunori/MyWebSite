@@ -28,7 +28,7 @@
 
 			<c:if test="${user.id == 1}">
 				<a href="Item_Master">
-					<button type="submit" class="btn2 btn-primary">　　商品管理　　</button>
+					<button type="submit" class="btn2 btn-primary">商品管理</button>
 				</a>
 			</c:if>
 			<form name="form_test">
@@ -116,24 +116,17 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row"><a
-						href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\buy-history-private.html"><button
-								type="button" class="btn5">
-								<i class="fas fa-chevron-down"></i>
-							</button></a></th>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<th scope="row"><button type="button" class="btn5">
-							<i class="fas fa-chevron-down"></i>
-						</button></th>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+				<c:forEach var="bdb" items="${bdb}">
+					<tr>
+						<th scope="row"><a href=""><button type="button"
+									class="btn5">
+									<i class="fas fa-chevron-down"></i>
+								</button></a></th>
+						<td>${bdb.buyDateFmt}</td>
+						<td>${bdb.deliveryMethodName}</td>
+						<td>${bdb.totalPrice}円</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<a href="Index">

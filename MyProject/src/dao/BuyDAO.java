@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.Date;
 
 import base.DBManager;
 import beans.BuyDataBeans;
@@ -121,7 +122,7 @@ public class BuyDAO {
 				BuyDataBeans bdb = new BuyDataBeans();
 				bdb.setId(rs.getInt("id"));
 				bdb.setTotalPrice(rs.getInt("total_price") + (rs.getInt("price")));
-				String buyDate = rs.getString("create_date");
+				Date buyDate = rs.getTimestamp("create_date");
 				bdb.setBuyDateFmt(buyDate);
 				bdb.setDelivertMethodId(rs.getInt("delivery_method_id"));
 				bdb.setDeliveryMethodName(rs.getString("name"));
@@ -160,7 +161,7 @@ public class BuyDAO {
 
 				ubh.setTotalPrice(rs.getInt("total_price") + (rs.getInt("price")));
 				ubh.setDelivertMethodId(rs.getInt("delivery_method_id"));
-				String buyDate = rs.getString("create_date");
+				Date buyDate = rs.getTimestamp("create_date");
 				ubh.setBuyDateFmt(buyDate);
 				ubh.setDeliveryMethodName(rs.getString("name"));
 

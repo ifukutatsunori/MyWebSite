@@ -1,6 +1,7 @@
 package ec;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.BuyDataBeans;
 import beans.UserDataBeans;
+import dao.BuyDAO;
 import dao.UserDAO;
 
 /**
@@ -29,17 +32,29 @@ public class UserInfo extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@SuppressWarnings("static-access")
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		HttpSession session = request.getSession();
 		int id = (int) session.getAttribute("userId");
+		try {
 
-		UserDAO userDao = new UserDAO();
-		UserDataBeans user = userDao.findByUserInfo(id);
-		request.setAttribute("user", user);
+			UserDAO userDao = new UserDAO();
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.USER_DATA_PAGE);
-		dispatcher.forward(request, response);
+			ArrayList<BuyDataBeans> bdb = BuyDAO.getBuyHistoryList(id);
+			request.setAttribute("bdb", bdb);
+
+			UserDataBeans user = userDao.findByUserInfo(id);
+			request.setAttribute("user", user);
+
+			RequestDispatcher dispatcher = request.getRequestDispatcher(EcHelper.USER_DATA_PAGE);
+			dispatcher.forward(request, response);
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			response.sendRedirect("login");
+		}
 	}
 
 	/**
