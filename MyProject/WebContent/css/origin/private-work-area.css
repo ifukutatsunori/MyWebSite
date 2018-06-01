@@ -167,6 +167,7 @@
 
 .card2 {
 	margin: 0 auto;
+	text-align: center;
 	padding-bottom: 30px;
 }
 
@@ -231,13 +232,13 @@
 
 }
 
-.carousel{
-   width:1300px;  /*サイズ指定*/
-   margin:auto;
-   padding-bottom: 50px;
+.carousel {
+	width: 1300px; /*サイズ指定*/
+	margin: auto;
+	padding-bottom: 50px;
 }
-}
-.carousel img{
-   width:100%;
-   height: 325px;
+
+.carousel img {
+	width: 100%;
+	height: 325px;
 }

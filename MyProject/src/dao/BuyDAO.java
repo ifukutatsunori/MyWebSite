@@ -159,7 +159,7 @@ public class BuyDAO {
 			while (rs.next()) {
 				BuyDataBeans ubh = new BuyDataBeans();
 
-				ubh.setTotalPrice(rs.getInt("total_price") + (rs.getInt("price")));
+				ubh.setTotalPrice(rs.getInt("total_price"));
 				ubh.setDelivertMethodId(rs.getInt("delivery_method_id"));
 				Date buyDate = rs.getTimestamp("create_date");
 				ubh.setBuyDateFmt(buyDate);

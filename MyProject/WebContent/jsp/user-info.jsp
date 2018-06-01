@@ -118,7 +118,7 @@
 			<tbody>
 				<c:forEach var="bdb" items="${bdb}">
 					<tr>
-						<th scope="row"><a href=""><button type="button"
+						<th scope="row"><a href="User_Buy_History?buy_id=${bdb.id}"><button type="button"
 									class="btn5">
 									<i class="fas fa-chevron-down"></i>
 								</button></a></th>

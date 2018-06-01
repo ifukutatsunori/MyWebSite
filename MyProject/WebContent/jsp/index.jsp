@@ -18,8 +18,16 @@
 	href="css/origin/private-work-drop-menu.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
 
-
+</script>
+<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="alert" role="alert">
@@ -138,29 +146,23 @@
 			class="sr-only">Next</span>
 		</a>
 	</div>
-
-	<div id="content">
-		<div id="main">
-			<div class="container">
-				<div class="row">
-					<c:forEach var="idb" items="${idb}">
-							<div class="col-sm" >
-								<div class="card" style="width: 14rem;">
-									<img class="card-img-top" height="280"
-										src="private-work-Picture/${idb.file_name}"
-										alt="Card image cap">
-									<div class="card-body">
-										<div><a href="Item_info?id=${idb.id}">${idb.name}</a></div>
-										<div>価格 ${idb.price}円</div>
-									</div>
-								</div>
+	<div class="container">
+		<div class="row">
+			<c:forEach var="idb" items="${idb}">
+				<div class="col-sm">
+					<div class="card2" style="width: 14rem;">
+						<img class="card-img-top" height="280"
+							src="private-work-Picture/${idb.file_name}" alt="Card image cap">
+						<div class="card-body">
+							<div>
+								<a href="Item_info?id=${idb.id}">${idb.name}</a>
 							</div>
-					</c:forEach>
+							<div>価格 ${idb.price}円</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</c:forEach>
 		</div>
-
-
 	</div>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
@@ -194,15 +196,5 @@
 
 		});
 	</script>
-
-	<script src="http://code.jquery.com/jquery-3.1.0.min.js"></script>
-
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-
 </body>
-<footer>
-<div class="alert2" role="alert"></div>
-</footer>
 </html>
