@@ -81,7 +81,6 @@ public class ItemDAO {
 				item.setName(rs.getString("name"));
 				item.setPrice(rs.getInt("price"));
 				item.setTag(rs.getString("tag"));
-				item.setStock(rs.getInt("stock"));
 				item.setFileName(rs.getString("file_name"));
 				item.setDetail(rs.getString("detail"));
 			}
@@ -107,27 +106,17 @@ public class ItemDAO {
 	 * @return
 	 * @throws SQLException
 	 */
-	public ArrayList<ItemDataBeans> getItemsByItemName(String searchWord, int pageNum, int pageMaxItemCount)
+	public ArrayList<ItemDataBeans> getItemsByItemName(String searchWord)
 			throws SQLException {
 		Connection con = null;
 		PreparedStatement st = null;
 		try {
-			int startiItemNum = (pageNum - 1) * pageMaxItemCount;
 			con = DBManager.getConnection();
 
-			if (searchWord.equals("")) {
-				// 全検索
-				st = con.prepareStatement("SELECT * FROM m_item ORDER BY id ASC LIMIT ?,? ");
-				st.setInt(1, startiItemNum);
-				st.setInt(2, pageMaxItemCount);
-			} else if (!searchWord.equals("")) {
-				// 商品名検索
-				st = con.prepareStatement(
-						"SELECT * FROM m_item WHERE name like '%'|| ? ||'%' ORDER BY id ASC LIMIT ?,? ");
-				st.setString(1, searchWord);
-				st.setInt(2, startiItemNum);
-				st.setInt(3, pageMaxItemCount);
-			}
+			// 商品名検索
+			st = con.prepareStatement(
+					"SELECT * FROM m_item WHERE name like ?");
+			st.setString(1, "%" + searchWord + "%");
 
 			ResultSet rs = st.executeQuery();
 			ArrayList<ItemDataBeans> itemList = new ArrayList<ItemDataBeans>();
@@ -243,12 +232,11 @@ public class ItemDAO {
 				String detail = rs.getString("detail");
 				int price = rs.getInt("price");
 				String tag = rs.getString("tag");
-				int stock = rs.getInt("stock");
 				int sale = rs.getInt("sale");
 				int trend = rs.getInt("trend");
 				String file_name = rs.getString("file_name");
 				String create_date = rs.getString("create_date");
-				ItemDataBeans idb = new ItemDataBeans(id, name, detail, price, tag, stock, sale, trend, file_name,
+				ItemDataBeans idb = new ItemDataBeans(id, name, detail, price, tag, sale, trend, file_name,
 						create_date);
 
 				itemList.add(idb);
@@ -359,7 +347,7 @@ public class ItemDAO {
 	 * 商品登録
 	 */
 	public void registration(String name, String price, String tag,
-			String stock, String fileName, String detail, String sale, String trend) {
+			String fileName, String detail, String sale, String trend) {
 
 		Connection conn = null;
 
@@ -367,17 +355,16 @@ public class ItemDAO {
 
 			conn = DBManager.getConnection();
 
-			String sql = "INSERT INTO m_item (name,price,tag,stock,file_name,detail,sale,trend,create_date) VALUES (?,?,?,?,?,?,?,?,now())";
+			String sql = "INSERT INTO m_item (name,price,tag,file_name,detail,sale,trend,create_date) VALUES (?,?,?,?,?,?,?,?,now())";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, name);
 			pStmt.setString(2, price);
 			pStmt.setString(3, tag);
-			pStmt.setString(4, stock);
-			pStmt.setString(5, fileName);
-			pStmt.setString(6, detail);
-			pStmt.setString(7, sale);
-			pStmt.setString(8, trend);
+			pStmt.setString(4, fileName);
+			pStmt.setString(5, detail);
+			pStmt.setString(6, sale);
+			pStmt.setString(7, trend);
 			pStmt.executeUpdate();
 
 			pStmt.close();
@@ -405,18 +392,17 @@ public class ItemDAO {
 
 			conn = DBManager.getConnection();
 
-			String sql = "UPDATE m_item SET name=?, price=?, tag=?,stock=?, file_name=?, detail=?,sale=?, trend=? WHERE id=? ";
+			String sql = "UPDATE m_item SET name=?, tag=?,stock=?, file_name=?, detail=?,sale=?, trend=? WHERE id=? ";
 
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, name);
 			pStmt.setString(2, price);
 			pStmt.setString(3, tag);
-			pStmt.setString(4, stock);
-			pStmt.setString(5, fileName);
-			pStmt.setString(6, detail);
-			pStmt.setString(7, sale);
-			pStmt.setString(8, trend);
-			pStmt.setString(9, id);
+			pStmt.setString(4, fileName);
+			pStmt.setString(5, detail);
+			pStmt.setString(6, sale);
+			pStmt.setString(7, trend);
+			pStmt.setString(8, id);
 			pStmt.executeUpdate();
 
 			pStmt.close();

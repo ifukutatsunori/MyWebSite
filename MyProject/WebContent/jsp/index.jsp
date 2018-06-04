@@ -16,6 +16,13 @@
 	href="css/origin/private-work-area.css">
 <link rel="stylesheet" type="text/css"
 	href="css/origin/private-work-drop-menu.css">
+	<link rel="stylesheet" type="text/css"
+	href="css/origin/demo.css">
+	<link rel="stylesheet" type="text/css"
+	href="css/origin/reset.css">
+<link rel="stylesheet" type="text/css"
+	href="css/origin/style_common.css">
+<link rel="stylesheet" type="text/css" href="css/origin/style5.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet"
@@ -100,15 +107,19 @@
 			<li><a href="#">Search</a>
 				<ul>
 					<li><div class="wrapper">
-							<div class="input-group mb-2">
-								<div class="input-group-prepend">
-									<div class="input-group-text">
-										<i class="fas fa-search"></i>
+							<form class="form-Search" action="Item_Word_Search" method="post">
+								<div class="input-group mb-2">
+									<div class="input-group-prepend">
+										<div class="input-group-text">
+											<button type="submit">
+												<i class="fas fa-search"></i>
+											</button>
+										</div>
 									</div>
+									<input type="text" class="form-control"
+										id="inlineFormInputGroup" name="searchWord" placeholder="">
 								</div>
-								<input type="text" class="form-control"
-									id="inlineFormInputGroup" placeholder="Search">
-							</div>
+							</form>
 						</div></li>
 				</ul></li>
 		</ul>
@@ -164,6 +175,17 @@
 			</c:forEach>
 		</div>
 	</div>
+
+	<c:forEach var="idb" items="${idb}">
+		<div class="view">
+			<img src="private-work-Picture/${idb.file_name}" />
+			<div class="mask">
+				<h2>Title</h2>
+				<p>Your Text</p>
+				<a href="#" class="info">Read More</a>
+			</div>
+		</div>
+	</c:forEach>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
 	</p>

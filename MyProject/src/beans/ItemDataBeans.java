@@ -15,7 +15,7 @@ public class ItemDataBeans implements Serializable {
 	private String file_name;
 	private String create_date;
 
-	public ItemDataBeans(int id, String name, String detail, int price, String tag, int stock, int sale, int trend,
+	public ItemDataBeans(int id, String name, String detail, int price, String tag, int sale, int trend,
 			String file_name, String create_date) {
 		super();
 		this.id = id;
@@ -23,7 +23,6 @@ public class ItemDataBeans implements Serializable {
 		this.detail = detail;
 		this.price = price;
 		this.tag = tag;
-		this.stock = stock;
 		this.sale = sale;
 		this.trend = trend;
 		this.file_name = file_name;
@@ -82,14 +81,6 @@ public class ItemDataBeans implements Serializable {
 		this.tag = tag;
 	}
 
-	public int getStock() {
-		return stock;
-	}
-
-	public void setStock(int stock) {
-		this.stock = stock;
-	}
-
 	public int getSale() {
 		return sale;
 	}
@@ -121,5 +112,4 @@ public class ItemDataBeans implements Serializable {
 	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-
 }

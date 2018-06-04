@@ -8,6 +8,7 @@ public class BuyDataBeans {
 	private int id;
 	private int userId;
 	private int totalPrice;
+	private int stock;
 	private int delivertMethodId;
 	private Date buyDate;
 	private String buyDateFmt;

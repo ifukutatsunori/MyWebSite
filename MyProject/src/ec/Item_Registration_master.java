@@ -47,7 +47,6 @@ public class Item_Registration_master extends HttpServlet {
 		String name = request.getParameter("name");
 		String price = request.getParameter("price");
 		String tag = request.getParameter("tag");
-		String stock = request.getParameter("stock");
 		String sale = request.getParameter("sale");
 		String trend = request.getParameter("trend");
 		String detail = request.getParameter("detail");
@@ -56,7 +55,7 @@ public class Item_Registration_master extends HttpServlet {
 
 		ItemDAO itemDao = new ItemDAO();
 		String fileName = EcHelper.getFileName(file_name);
-		itemDao.registration(name, price, tag, stock, fileName, detail, sale, trend);
+		itemDao.registration(name, price, tag, fileName, detail, sale, trend);
 		file_name.write(fileName);
 		response.sendRedirect("Item_Master");
 
