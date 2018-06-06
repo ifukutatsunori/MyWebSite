@@ -9,7 +9,6 @@ public class ItemDataBeans implements Serializable {
 	private String detail;
 	private int price;
 	private String tag;
-	private int stock;
 	private int sale;
 	private int trend;
 	private String file_name;

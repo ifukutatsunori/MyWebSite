@@ -16,10 +16,7 @@
 	href="css/origin/private-work-area.css">
 <link rel="stylesheet" type="text/css"
 	href="css/origin/private-work-drop-menu.css">
-	<link rel="stylesheet" type="text/css"
-	href="css/origin/demo.css">
-	<link rel="stylesheet" type="text/css"
-	href="css/origin/reset.css">
+<link rel="stylesheet" type="text/css" href="css/origin/reset.css">
 <link rel="stylesheet" type="text/css"
 	href="css/origin/style_common.css">
 <link rel="stylesheet" type="text/css" href="css/origin/style5.css">
@@ -157,35 +154,22 @@
 			class="sr-only">Next</span>
 		</a>
 	</div>
+
 	<div class="container">
 		<div class="row">
 			<c:forEach var="idb" items="${idb}">
-				<div class="col-sm">
-					<div class="card2" style="width: 14rem;">
-						<img class="card-img-top" height="280"
-							src="private-work-Picture/${idb.file_name}" alt="Card image cap">
-						<div class="card-body">
-							<div>
-								<a href="Item_info?id=${idb.id}">${idb.name}</a>
-							</div>
-							<div>価格 ${idb.price}円</div>
-						</div>
+				<div class="view view-fifth">
+					<img src="private-work-Picture/${idb.file_name}" />
+					<div class="mask">
+						<h2>${idb.name}</h2>
+						<p>
+						<h3>価格 ${idb.price}円</h3>
+						<a href="Item_info?id=${idb.id}">商品詳細</a>
 					</div>
 				</div>
 			</c:forEach>
 		</div>
 	</div>
-
-	<c:forEach var="idb" items="${idb}">
-		<div class="view">
-			<img src="private-work-Picture/${idb.file_name}" />
-			<div class="mask">
-				<h2>Title</h2>
-				<p>Your Text</p>
-				<a href="#" class="info">Read More</a>
-			</div>
-		</div>
-	</c:forEach>
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
 	</p>
