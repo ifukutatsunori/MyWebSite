@@ -19,7 +19,6 @@
 	<form class="item_info_master" action="Item_Info_Master"
 		enctype="multipart/form-data" method="post">
 		<div class="card" style="width: 40rem;">
-			<img class="card-img-top" src="${idb.file_name}" alt="Card image cap">
 			<div class="card-body">
 				<div class="item-form-area">
 					<div class="input-group mb-3">
@@ -46,14 +45,6 @@
 						<input type="text" class="form-control" aria-label="Default"
 							aria-describedby="inputGroup-sizing-default" name="tag"
 							value="${idb.tag}">
-					</div>
-					<div class="input-group mb-3">
-						<div class="input-group-prepend">
-							<span class="input-group-text" id="inputGroup-sizing-default">在庫</span>
-						</div>
-						<input type="text" class="form-control" aria-label="Default"
-							aria-describedby="inputGroup-sizing-default" name="stock"
-							value="${idb.stock}">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">

@@ -23,6 +23,7 @@
 }
 
 .title-area {
+	font-size: 16px;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -89,7 +90,6 @@
 .item-form-area {
 	text-align: center;
 	padding-top: 30px;
-	width: 600px;
 	margin: 0 auto;
 }
 
@@ -228,10 +228,6 @@
 	color: #999999;
 }
 
-.card-area {
-
-}
-
 .carousel {
 	width: 1300px; /*サイズ指定*/
 	margin: auto;
@@ -241,4 +237,24 @@
 .carousel img {
 	width: 100%;
 	height: 325px;
+}
+
+div#content {
+background-color: #99cc33;
+width: 100%;
+overflow: hidden;
+}
+
+div#main {
+color: #339933;
+background-color: #99cc33;
+width: 70%;
+float: right;
+}
+
+nav {
+color: #339933;
+background-color: #99cc33;
+width: 30%;
+float: left;
 }

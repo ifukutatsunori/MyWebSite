@@ -16,7 +16,6 @@
 	href="css/origin/private-work-area.css">
 <link rel="stylesheet" type="text/css"
 	href="css/origin/private-work-drop-menu.css">
-<link rel="stylesheet" type="text/css" href="css/origin/reset.css">
 <link rel="stylesheet" type="text/css"
 	href="css/origin/style_common.css">
 <link rel="stylesheet" type="text/css" href="css/origin/style5.css">
@@ -154,22 +153,30 @@
 			class="sr-only">Next</span>
 		</a>
 	</div>
-
-	<div class="container">
-		<div class="row">
-			<c:forEach var="idb" items="${idb}">
-				<div class="view view-fifth">
-					<img src="private-work-Picture/${idb.file_name}" />
-					<div class="mask">
-						<h2>${idb.name}</h2>
-						<p>
-						<h3>価格 ${idb.price}円</h3>
-						<a href="Item_info?id=${idb.id}">商品詳細</a>
+	<div id="content">
+				<c:forEach var="idb" items="${idb}">
+					<div class="view view-fifth">
+						<img src="private-work-Picture/${idb.file_name}" />
+						<div class="mask">
+							<h2>${idb.name}</h2>
+							<p>
+							<div>価格 ${idb.price}円</div>
+							<a href="Item_info?id=${idb.id}">商品詳細</a>
+						</div>
 					</div>
-				</div>
-			</c:forEach>
-		</div>
+				</c:forEach>
+			</div>
+		<nav>
+			<ul>
+				<li>春</li>
+				<li><a href="natsu.html">夏</a></li>
+				<li><a href="aki.html">秋</a></li>
+				<li><a href="furu.html">冬</a></li>
+			</ul>
+
+		</nav>
 	</div>
+
 	<p id="pageTop">
 		<a href="#"><i class="fa fa-chevron-up "></i></a>
 	</p>

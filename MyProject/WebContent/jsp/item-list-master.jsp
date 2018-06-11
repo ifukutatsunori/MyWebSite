@@ -25,7 +25,6 @@
 					<th scope="col">商品名</th>
 					<th scope="col">分類コード</th>
 					<th scope="col">価格</th>
-					<th scope="col">在庫</th>
 					<th scope="col">登録日時</th>
 				</tr>
 			</thead>
@@ -36,7 +35,6 @@
 						<td><a href="Item_Info_Master?id=${idb.id}">${idb.name}</a></td>
 						<td>${idb.tag}</td>
 						<td>${idb.price}</td>
-						<td>${idb.stock}</td>
 						<td>${idb.create_date}</td>
 					</tr>
 				</c:forEach>
@@ -58,7 +56,6 @@
 				<div class="col"></div>
 			</div>
 		</div>
-	</div>
 	</div>
 </body>
 </html>

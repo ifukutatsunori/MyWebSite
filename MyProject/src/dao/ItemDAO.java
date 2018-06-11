@@ -384,7 +384,7 @@ public class ItemDAO {
 	}
 
 	public void upDate(String name, String price, String tag,
-			String stock, String fileName, String detail, String sale, String trend, String id) {
+			String fileName, String detail, String sale, String trend, String id) {
 		//テーブル内に格納されているデータを更新上書きするメソット//
 		Connection conn = null;
 
