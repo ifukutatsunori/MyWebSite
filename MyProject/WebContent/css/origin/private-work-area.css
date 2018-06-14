@@ -87,7 +87,22 @@
 	margin-top: 30px;
 }
 
+.registration {
+	width: 800px;
+	text-align: center;
+	padding-top: 30px;
+	margin: 0 auto;
+}
+
 .item-form-area {
+	width: 800px;
+	text-align: center;
+	padding-top: 30px;
+	margin: 0 auto;
+}
+
+.item-form-area2 {
+	width: 600px;
 	text-align: center;
 	padding-top: 30px;
 	margin: 0 auto;
@@ -240,21 +255,44 @@
 }
 
 div#content {
-background-color: #99cc33;
-width: 100%;
-overflow: hidden;
+	width: 100%;
+	overflow: hidden;
 }
 
 div#main {
-color: #339933;
-background-color: #99cc33;
-width: 70%;
-float: right;
+	width: 75%;
+	padding-right: 30px;
+	float: right;
 }
 
 nav {
-color: #339933;
-background-color: #99cc33;
-width: 30%;
-float: left;
+	width:25%;
+	padding-left: 80px;
+	float: left;
+}
+
+nav li{
+	font-size: x-large;
+}
+.mask-area{
+	font-size: large;
+	padding-top: 30px;
+	padding-right: 15px;
+}
+
+input.size{
+	 transform: scale(3.21);
+	 margin-top: 14px;
+	 margin-left: 6px;
+}
+
+input.size2{
+	 transform: scale(3.3);
+	 margin-top: 14px;
+	 margin-left: 15px;
+}
+
+footer.alert {
+	width: 100%;
+	height: 35px;
 }

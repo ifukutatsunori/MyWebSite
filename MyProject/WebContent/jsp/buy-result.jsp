@@ -16,10 +16,6 @@
 		<h1 class="title-area">購入完了画面</h1>
 	</div>
 	<h4 class="title-area2">購入が完了しました</h4>
-	<div class="container">
-		<div id="timer">10</div>
-		<a href="" id="start" class="inactive">スタート</a>
-	</div>
 	<h3 class="title-area2">5秒後にホーム画面に遷移します</h3>
 	<div>
 		<a

@@ -28,7 +28,7 @@
 
 			<c:if test="${user.id == 1}">
 				<a href="Item_Master">
-					<button type="submit" class="btn2 btn-primary">商品管理</button>
+					<button type="submit" class="btn2 btn-primary">　商品管理　</button>
 				</a>
 			</c:if>
 			<form name="form_test">
@@ -98,7 +98,7 @@
 							value="${user.postal_code}">
 					</div>
 					<a href="/Logout">
-						<button type="submit" class="btn2 btn-primary">更新</button>
+						<button type="submit" class="btn2 btn-primary">　　更新　　</button>
 					</a>
 				</div>
 			</form>
@@ -130,7 +130,7 @@
 			</tbody>
 		</table>
 		<a href="Index">
-			<button type="button" class="btn-return btn-link">戻る</button>
+			<button type="button" class="btn-return btn-link">　戻る　</button>
 		</a>
 	</div>
 </body>

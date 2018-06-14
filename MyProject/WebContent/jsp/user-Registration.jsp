@@ -18,7 +18,7 @@
 		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
 	</c:if>
 <form class="form-signin" action="SignUp" method="post">
-	<div class="item-form-area">
+	<div class="item-form-area2">
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default">
@@ -88,13 +88,13 @@
 				aria-label="Default" aria-describedby="inputGroup-sizing-default">
 		</div>
 
-			<button type="submit" class="btn2 btn-primary">登録</button>
+			<button type="submit" class="btn2 btn-primary">　　登録　　</button>
 
 	</div>
 	</form>
 	<a
 		href="Index">
-		<button type="button" class="btn-return btn-link">戻る</button>
+		<button type="button" class="btn-return btn-link">　戻る　</button>
 	</a>
 	</body>
 </html>

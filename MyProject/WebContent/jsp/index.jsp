@@ -35,7 +35,7 @@
 <body>
 	<div class="alert" role="alert">
 
-		<h1 class="title-area">個人開発オンラインショップ</h1>
+		<div class="title-area">個人開発オンラインショップ</div>
 
 		<div class="button-area">
 
@@ -85,20 +85,20 @@
 
 			<li><a href="#">Pickup</a>
 				<ul>
-					<li><a href="#">NEW</a></li>
+					<li><a href="#">NEW ※未実装</a></li>
 					<li><a href="Item_PicUp?sale=1">SALE</a></li>
 					<li><a href="Item_PicUp?trend=1">TREND</a></li>
 				</ul></li>
-			<li><a href="#">menu</a>
+			<li><a href="#">Contents</a>
 				<ul>
-					<li><a href="#">submenu</a></li>
-					<li><a href="#">submenu</a></li>
-					<li><a href="#">submenu</a></li>
+					<li><a href="#">SIZE GUIDE ※未実装</a></li>
+					<li><a href="#">MAGAZINE【vol.1】※未実装</a></li>
+					<li><a href="#">MAGAZINE【vol.2】※未実装</a></li>
 				</ul></li>
 			<li><a href="#">Contact</a>
 				<ul>
-					<li><a href="#"><i class="fas fa-phone"></i>TEL</a></li>
-					<li><a href="#"><i class="fas fa-envelope"></i>MAIL</a></li>
+					<li><a href="#"><i class="fas fa-phone"></i>TEL ※未実装</a></li>
+					<li><a href="#"><i class="fas fa-envelope"></i>MAIL ※未実装</a></li>
 				</ul></li>
 			<li><a href="#">Search</a>
 				<ul>
@@ -154,26 +154,41 @@
 		</a>
 	</div>
 	<div id="content">
-				<c:forEach var="idb" items="${idb}">
-					<div class="view view-fifth">
-						<img src="private-work-Picture/${idb.file_name}" />
-						<div class="mask">
+		<div id="main">
+			<c:forEach var="idb" items="${idb}">
+				<div class="view view-fifth">
+					<img src="private-work-Picture/${idb.file_name}" />
+					<div class="mask">
+						<div class="mask-area">
 							<h2>${idb.name}</h2>
 							<p>
 							<div>価格 ${idb.price}円</div>
 							<a href="Item_info?id=${idb.id}">商品詳細</a>
 						</div>
 					</div>
-				</c:forEach>
-			</div>
+				</div>
+			</c:forEach>
+		</div>
 		<nav>
 			<ul>
-				<li>春</li>
-				<li><a href="natsu.html">夏</a></li>
-				<li><a href="aki.html">秋</a></li>
-				<li><a href="furu.html">冬</a></li>
+				<li>SHOP CATEGORY</li>
+				<li><a href="Index">ALL ITEM</a></li>
+				<li><a href="Item_Tag_Search?tag=TOPS">TOPS</a></li>
+				<li><a href="Item_Tag_Search?tag=BOTTOMS">BOTTOMS</a></li>
+				<li><a href="Item_Tag_Search?tag=OUTER">OUTER</a></li>
 			</ul>
-
+			<ul>
+				<li>PICK UP</li>
+				<li><a href="">NEW</a></li>
+				<li><a href="Item_PicUp?sale=1">SALE</a></li>
+				<li><a href="Item_PicUp?trend=1">TREND</a></li>
+			</ul>
+			<ul>
+				<li>CONTENTS</li>
+				<li><a href="">SIZE GUIDE</a></li>
+				<li><a href="">MAGAZINE【vol.1】</a></li>
+				<li><a href="">MAGAZINE【vol.2】</a></li>
+			</ul>
 		</nav>
 	</div>
 
@@ -209,5 +224,6 @@
 
 		});
 	</script>
+	<footer class="alert" role="alert"></footer>
 </body>
 </html>

@@ -86,6 +86,6 @@ public class SignUp extends HttpServlet {
 			}
 		}
 		userDao.signUp(login_id,name,birth_date,password,address,phone_number,postal_code,mail_address);
-		request.getRequestDispatcher(EcHelper.TOP_PAGE).forward(request, response);
+		response.sendRedirect("Index");
 	}
 }

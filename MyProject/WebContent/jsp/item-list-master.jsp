@@ -45,12 +45,12 @@
 				<div class="col"></div>
 				<div class="col">
 					<a href="UserInfo">
-						<button type="button" class="btn-return2 btn-link">戻る</button>
+						<button type="button" class="btn-return2 btn-link">　戻る　</button>
 					</a>
 				</div>
 				<div class="col">
 					<a href="Item_Registration_master">
-						<button type="button" class="btn2 btn-primary">商品登録</button>
+						<button type="button" class="btn2 btn-primary">　商品登録　</button>
 					</a>
 				</div>
 				<div class="col"></div>

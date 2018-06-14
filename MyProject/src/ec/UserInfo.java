@@ -37,9 +37,9 @@ public class UserInfo extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		int id = (int) session.getAttribute("userId");
-		try {
 
+		try {
+			int id = (int) session.getAttribute("userId");
 			UserDAO userDao = new UserDAO();
 
 			ArrayList<BuyDataBeans> bdb = BuyDAO.getBuyHistoryList(id);

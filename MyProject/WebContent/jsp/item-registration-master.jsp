@@ -41,14 +41,6 @@
 		</div>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
-				<span class="input-group-text" id="inputGroup-sizing-default">在庫</span>
-			</div>
-			<input type="text" class="form-control" aria-label="Default"
-				aria-describedby="inputGroup-sizing-default" name="stock">
-		</div>
-
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default">商品画像</span>
 			</div>
 			<input type="file" class="form-control" aria-label="Default"
@@ -65,22 +57,22 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default">Trend</span>
 			</div>
-			<input type="checkbox" name="trend" value="1">
+			<input type="checkbox" class="size" name="trend" value="1">
 		</div>
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="inputGroup-sizing-default">Sale</span>
-			</div>
-			<input type="checkbox" name="sale" value="1">
+				</div>
+			<input type="checkbox" name="sale" class="size2" value="1">
 		</div>
 		<a
 			href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\item-list-master-private.html">
-			<button type="submit" class="btn2 btn-primary">登録</button>
+			<button type="submit" class="btn2 btn-primary">　　登録　　</button>
 		</a>
 	</div>
 </form>
 <a href="Item_Master">
-	<button type="button" class="btn-return btn-link">戻る</button>
+	<button type="button" class="btn-return btn-link">　戻る　</button>
 </a>
 
 </body>

@@ -20,7 +20,7 @@
 		enctype="multipart/form-data" method="post">
 		<div class="card" style="width: 40rem;">
 			<div class="card-body">
-				<div class="item-form-area">
+				<div class="item-form-area2">
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">商品名</span>
@@ -66,18 +66,18 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">Trend</span>
 						</div>
-						<input type="checkbox" name="trend" value="1">
+						<input type="checkbox" name="trend" class="size" value="1">
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
 							<span class="input-group-text" id="inputGroup-sizing-default">Sale</span>
 						</div>
-						<input type="checkbox" name="sale" value="1">
+						<input type="checkbox" name="sale" class="size2" value="1">
 					</div>
-					<button type="submit" class="btn2 btn-primary">更新</button>
+					<button type="submit" class="btn2 btn-primary">　　更新　　</button>
 				</div>
 				<a href="Item_Master">
-					<button type="button" class="btn-return2 btn-link">戻る</button>
+					<button type="button" class="btn-return2 btn-link">　戻る　</button>
 				</a>
 			</div>
 		</div>

@@ -121,7 +121,7 @@ public class BuyDAO {
 			while (rs.next()) {
 				BuyDataBeans bdb = new BuyDataBeans();
 				bdb.setId(rs.getInt("id"));
-				bdb.setTotalPrice(rs.getInt("total_price") + (rs.getInt("price")));
+				bdb.setTotalPrice(rs.getInt("total_price"));
 				Date buyDate = rs.getTimestamp("create_date");
 				bdb.setBuyDateFmt(buyDate);
 				bdb.setDelivertMethodId(rs.getInt("delivery_method_id"));
