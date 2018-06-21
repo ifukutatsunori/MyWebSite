@@ -18,7 +18,7 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">アカウント情報確認/変更</h1>
+		<div class="title-area"><h1>アカウント情報確認/変更</h1></div>
 	</div>
 	<div class="card2" style="width: 25rem;">
 
@@ -133,5 +133,6 @@
 			<button type="button" class="btn-return btn-link">　戻る　</button>
 		</a>
 	</div>
+	<footer class="alert" role="alert"></footer>
 </body>
 </html>

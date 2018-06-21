@@ -35,7 +35,7 @@
 <body>
 	<div class="alert" role="alert">
 
-		<div class="title-area">個人開発オンラインショップ</div>
+		<div class="title-area"><h1>個人開発オンラインショップ</h1></div>
 
 		<div class="button-area">
 
@@ -171,20 +171,20 @@
 		</div>
 		<nav>
 			<ul>
-				<li>SHOP CATEGORY</li>
+				<li><h2>SHOP CATEGORY</h2></li>
 				<li><a href="Index">ALL ITEM</a></li>
 				<li><a href="Item_Tag_Search?tag=TOPS">TOPS</a></li>
 				<li><a href="Item_Tag_Search?tag=BOTTOMS">BOTTOMS</a></li>
 				<li><a href="Item_Tag_Search?tag=OUTER">OUTER</a></li>
 			</ul>
 			<ul>
-				<li>PICK UP</li>
+				<li><h2>PICK UP</h2></li>
 				<li><a href="">NEW</a></li>
 				<li><a href="Item_PicUp?sale=1">SALE</a></li>
 				<li><a href="Item_PicUp?trend=1">TREND</a></li>
 			</ul>
 			<ul>
-				<li>CONTENTS</li>
+				<li><h2>CONTENTS</h2></li>
 				<li><a href="">SIZE GUIDE</a></li>
 				<li><a href="">MAGAZINE【vol.1】</a></li>
 				<li><a href="">MAGAZINE【vol.2】</a></li>

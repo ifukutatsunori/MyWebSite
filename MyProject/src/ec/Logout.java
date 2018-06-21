@@ -20,6 +20,7 @@ public class Logout extends HttpServlet {
 
 		session.removeAttribute("userId");
 		session.removeAttribute("LoginStatus");
+		session.removeAttribute("cart");
 		response.sendRedirect("Index");
 	}
 }

@@ -21,8 +21,13 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">商品購入/配送方法選択</h1>
+		<div class="title-area">
+			<h1>商品購入/配送方法選択</h1>
+		</div>
 	</div>
+	<c:if test="${errMsg != null}">
+		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
+	</c:if>
 	<form action="BuyConfirm" method="POST">
 		<table class="table table-hover">
 			<thead>
@@ -45,7 +50,7 @@
 		<div class="form2-area">
 			<div class="row">
 				<div class="col-sm-8"></div>
-				<div class="col-sm-4">配送方法</div>
+				<div class="col-sm-4">配送方法　※未選択の場合、通常配送になります</div>
 			</div>
 			<div class="row">
 				<div class="col-sm"></div>
@@ -54,12 +59,11 @@
 
 					<select class="custom-select" id="inputGroupSelect03"
 						name="delivery">
-						<option selected>配送方法を選択</option>
+						<option selected value="2">配送方法を選択</option>
 						<c:forEach var="dmdbList" items="${dmdbList}">
 							<option value="${dmdbList.id}">${dmdbList.name}</option>
 						</c:forEach>
 					</select>
-
 				</div>
 			</div>
 			<div class="form3-area">

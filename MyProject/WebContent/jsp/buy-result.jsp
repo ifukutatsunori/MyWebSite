@@ -13,7 +13,7 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">購入完了画面</h1>
+		<div class="title-area"><h1>購入完了画面</h1></div>
 	</div>
 	<h4 class="title-area2">購入が完了しました</h4>
 	<h3 class="title-area2">5秒後にホーム画面に遷移します</h3>

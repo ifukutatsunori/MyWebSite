@@ -12,7 +12,7 @@
 
 </head>
 <div class="alert2" role="alert">
-	<h1 class="title-area">商品登録</h1>
+	<div class="title-area"><h1>商品登録</h1></div>
 </div>
 <form class="registration" action="Item_Registration_master"
 	enctype="multipart/form-data" method="post">
@@ -74,6 +74,7 @@
 <a href="Item_Master">
 	<button type="button" class="btn-return btn-link">　戻る　</button>
 </a>
-
+<footer class="alert" role="alert"></footer>
 </body>
+
 </html>

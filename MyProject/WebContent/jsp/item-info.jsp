@@ -18,7 +18,7 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">商品詳細/カート追加</h1>
+		<div class="title-area"><h1>商品詳細/カート追加</h1></div>
 	</div>
 	<div></div>
 	<div class="item-list-area">
@@ -49,5 +49,6 @@
 			<button type="button" class="btn-return2 btn-link">戻る</button>
 		</a>
 	</div>
+	<footer class="alert" role="alert"></footer>
 </body>
 </html>

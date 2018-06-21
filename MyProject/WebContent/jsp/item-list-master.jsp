@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="alert" role="alert">
-		<h1 class="title-area">商品リスト一覧</h1>
+		<div class="title-area"><h1>商品リスト一覧</h1></div>
 	</div>
 	<div class="table-area">
 		<table class="table table-hover">
@@ -57,5 +57,7 @@
 			</div>
 		</div>
 	</div>
+	<footer class="alert" role="alert"></footer>
 </body>
+
 </html>

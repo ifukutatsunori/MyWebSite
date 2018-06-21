@@ -17,7 +17,7 @@
 </head>
 <body>
 	<div class="alert" role="alert">
-		<h1 class="title-area">会員ログインページ</h1>
+		<div class="title-area"><h1>会員ログインページ</h1></div>
 	</div>
 	<c:if test="${errMsg != null}">
 		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
@@ -53,4 +53,5 @@
 	</form>
 
 </body>
+
 </html>

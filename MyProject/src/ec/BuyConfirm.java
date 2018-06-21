@@ -49,6 +49,7 @@ public class BuyConfirm extends HttpServlet {
 		try {
 			//選択された配送方法IDを取得
 			String inputDeliveryMethodId = request.getParameter("delivery");
+
 			//選択されたIDをもとに配送方法Beansを取得
 			DeliveryMethodDataBeans userSelectDMB = DeliveryMethodDAO
 					.getDeliveryMethodDataBeansByID(inputDeliveryMethodId);

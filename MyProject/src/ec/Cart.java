@@ -79,7 +79,7 @@ public class Cart extends HttpServlet {
 					}
 				}
 			} else {
-				request.setAttribute("errMsg", "削除する商品が選択されていません");
+				request.setAttribute("errMsg2", "削除する商品が選択されていません");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

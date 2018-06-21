@@ -20,7 +20,9 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">商品購入確認</h1>
+		<div class="title-area">
+			<h1>商品購入確認</h1>
+		</div>
 	</div>
 	<form action="BuyResult" method="POST">
 		<table class="table table-hover">

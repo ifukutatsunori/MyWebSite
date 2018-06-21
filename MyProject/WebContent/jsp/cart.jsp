@@ -18,10 +18,13 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">カート詳細/購入</h1>
+		<div class="title-area"><h1>カート詳細/購入</h1></div>
 	</div>
 	<c:if test="${errMsg != null}">
 		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
+	</c:if>
+	<c:if test="${errMsg2 != null}">
+		<div class="alert1 alert-danger" role="alert">${errMsg2}</div>
 	</c:if>
 	<form action="Cart" method="POST">
 		<div>

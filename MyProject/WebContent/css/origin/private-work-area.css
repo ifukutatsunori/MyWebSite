@@ -22,6 +22,7 @@
 	padding-bottom: 20px;
 }
 
+
 .title-area {
 	font-size: 16px;
 	text-align: center;
@@ -261,6 +262,7 @@ div#content {
 
 div#main {
 	width: 75%;
+	padding-left: 50px;
 	padding-right: 30px;
 	float: right;
 }
@@ -295,4 +297,19 @@ input.size2{
 footer.alert {
 	width: 100%;
 	height: 35px;
+	margin-top: 30px;
+}
+
+nav li h2{
+position: relative;
+padding: 0.25em 0;
+}
+
+nav li h2:after {
+content: "";
+display: block;
+height: 4px;
+background: -moz-linear-gradient(to right, rgb(90, 90, 230), transparent);
+background: -webkit-linear-gradient(to right, rgb(90, 90, 230), transparent);
+background: linear-gradient(to right, rgb(90, 90, 230), transparent);
 }

@@ -14,7 +14,7 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">商品詳細/変更</h1>
+		<div class="title-area"><h1>商品詳細/変更</h1></div>
 	</div>
 	<form class="item_info_master" action="Item_Info_Master"
 		enctype="multipart/form-data" method="post">
@@ -82,5 +82,7 @@
 			</div>
 		</div>
 	</form>
+	<footer class="alert" role="alert"></footer>
 </body>
+
 </html>

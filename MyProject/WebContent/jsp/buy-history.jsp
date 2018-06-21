@@ -20,7 +20,7 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<h1 class="title-area">商品購入履歴確認</h1>
+		<div class="title-area"><h1>商品購入履歴確認</h1></div>
 	</div>
 	<div class="table-area3">
 		<table class="table table-hover">
