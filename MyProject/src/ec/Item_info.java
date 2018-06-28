@@ -33,7 +33,7 @@ public class Item_info extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
+		//選択した商品のIDを元に該当する商品情報を取得
 		String id = request.getParameter("id");
 		ItemDAO itemDao = new ItemDAO();
 		try {

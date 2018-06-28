@@ -32,7 +32,7 @@ public class Login extends HttpServlet {
 		try {
 			String login_id = request.getParameter("login_id");
 			String password = request.getParameter("password");
-
+			//UserDao経由で入力されたIDとPasswordの入力チェック
 			UserDAO userDao = new UserDAO();
 			UserDataBeans udb = userDao.findByLoginInfo(login_id, password);
 			if (udb == null) {

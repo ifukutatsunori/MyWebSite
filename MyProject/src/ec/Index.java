@@ -22,8 +22,9 @@ public class Index extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		//ログイン時のsessionを取得
 		HttpSession session = request.getSession();
+		//ItemDao経由で全ての商品の情報を取得
 		ItemDAO itemDao = new ItemDAO();
 		List<ItemDataBeans> idb = itemDao.findAll();
 		request.setAttribute("idb", idb);
@@ -32,7 +33,7 @@ public class Index extends HttpServlet {
 			//ログイン状況で表示されるボタンを変更する為の処理
 			if (null != session.getAttribute("userId")) {
 				int id = (int) session.getAttribute("userId");
-
+				//UserDao経由でログインしたユーザー情報を取得
 				UserDAO userDao = new UserDAO();
 				UserDataBeans user = userDao.findByUserInfo(id);
 				request.setAttribute("user", user);

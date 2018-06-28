@@ -42,7 +42,7 @@ public class SignUp extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-
+		//新規登録フォームにて入力された各データを所得
 		String login_id = request.getParameter("login_id");
 		String name = request.getParameter("name");
 		String birth_date = request.getParameter("birth_date");
@@ -52,7 +52,7 @@ public class SignUp extends HttpServlet {
 		String phone_number = request.getParameter("phone_number");
 		String postal_code = request.getParameter("postal_code");
 		String mail_address = request.getParameter("mail_address");
-
+		//UserDao経由で入力されたIDの重複チェック
 		UserDAO userDao = new UserDAO();
 		String idCheck = userDao.findByLoginIdCheck(login_id);
 
@@ -85,7 +85,8 @@ public class SignUp extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		userDao.signUp(login_id,name,birth_date,password,address,phone_number,postal_code,mail_address);
+		//各入力チェックをスルーした場合、DBに各データを登録
+		userDao.signUp(login_id, name, birth_date, password, address, phone_number, postal_code, mail_address);
 		response.sendRedirect("Index");
 	}
 }

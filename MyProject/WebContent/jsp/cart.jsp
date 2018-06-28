@@ -18,7 +18,9 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<div class="title-area"><h1>カート詳細/購入</h1></div>
+		<div class="title-area">
+			<h1>カート詳細/購入</h1>
+		</div>
 	</div>
 	<c:if test="${errMsg != null}">
 		<div class="alert1 alert-danger" role="alert">${errMsg}</div>
@@ -27,42 +29,40 @@
 		<div class="alert1 alert-danger" role="alert">${errMsg2}</div>
 	</c:if>
 	<form action="Cart" method="POST">
-		<div>
-			<button type="submit" class="btn4 btn-secondary btn-lg" name="action">
+		<div class="btn-area">
+			<button type="submit" class="btn2 btn-secondary btn-lg" name="action">
 				削 除 <i class="far fa-trash-alt"></i>
 			</button>
-			<a href="Buy" class="btn4 btn-success btn-lg"> レジに進む <i
-				class="fas fa-hand-holding-usd"></i>
-			</a>
+			<button formaction="Buy" class="btn2 btn-success btn-lg">
+				レジに進む <i class="fas fa-hand-holding-usd"></i>
+			</button>
 		</div>
-		<div class="item-list-area">
-			<div class="container">
-				<div class="row">
-					<c:forEach var="cart" items="${cart}">
-						<div class="col">
-							<div class="card" style="width: 18rem;">
-								<img class="card-img-top" height="360"
-									src="private-work-Picture/${cart.file_name}"
-									alt="Card image cap">
-								<div class="card-body">
-									<h5 class="card-title">${cart.name}</h5>
-									<p class="card-text">${cart.detail}</p>
-									<p class="card-text">価格${cart.price}円</p>
-									<div class="form-check">
-										<input type="checkbox" class="form-check-input"
-											name="delete_id" id="deleteCheck" value="${cart.id}">
-										<label class="form-check-label" for="exampleCheck1">削除</label><i
-											class="fas fa-cart-arrow-down"></i>
-									</div>
+		<div class="container">
+			<div class="row">
+				<c:forEach var="cart" items="${cart}">
+					<div class="col">
+						<div class="card" style="width: 18rem;">
+							<img class="card-img-top" height="360"
+								src="private-work-Picture/${cart.file_name}"
+								alt="Card image cap">
+							<div class="card-body">
+								<h5 class="card-title">${cart.name}</h5>
+								<p class="card-text">${cart.detail}</p>
+								<p class="card-text">価格${cart.price}円</p>
+								<div class="form-check">
+									<input type="checkbox" class="form-check-input"
+										name="delete_id" id="deleteCheck" value="${cart.id}">
+									<label class="form-check-label" for="exampleCheck1">削除</label><i
+										class="fas fa-cart-arrow-down"></i>
 								</div>
 							</div>
 						</div>
-					</c:forEach>
-				</div>
-				<a href="Index">
+					</div>
+				</c:forEach>
+			</div>
+			<a href="Index">
 				<button type="button" class="btn-return2 btn-link">戻る</button>
 			</a>
-			</div>
 		</div>
 	</form>
 </body>

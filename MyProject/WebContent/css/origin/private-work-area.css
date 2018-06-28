@@ -22,11 +22,11 @@
 	padding-bottom: 20px;
 }
 
-
 .title-area {
 	font-size: 16px;
 	text-align: center;
 	margin: 0 auto;
+	width: 100%;
 }
 
 .title-area2 {
@@ -88,6 +88,12 @@
 	margin-top: 30px;
 }
 
+.btn-area {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	text-align: center;
+}
+
 .registration {
 	width: 800px;
 	text-align: center;
@@ -96,7 +102,7 @@
 }
 
 .item-form-area {
-	width: 800px;
+	width: 100%;
 	text-align: center;
 	padding-top: 30px;
 	margin: 0 auto;
@@ -110,31 +116,33 @@
 }
 
 .item-list-area {
+	width: 100%;
 	padding-top: 40px;
 	padding-bottom: 40px;
+	text-align: center;
 }
 
 .table {
 	padding-top: 40px;
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 }
 
 .table-area {
 	padding-top: 40px;
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 }
 
 .table-area2 {
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 	padding-bottom: 40px;
 }
 
 .table-area3 {
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 	padding-bottom: 50px;
 	padding-top: 40px;
 }
@@ -159,13 +167,13 @@
 
 .form2-area {
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 }
 
 .form3-area {
 	padding-top: 40px;
 	margin: 0 auto;
-	width: 1400px;
+	width: 100%;
 	text-align: center;
 }
 
@@ -190,6 +198,11 @@
 .card-text {
 	text-align: center;
 }
+
+div.col {
+	text-align: center;
+}
+
 
 .user-form-area {
 	text-align: center;
@@ -245,7 +258,7 @@
 }
 
 .carousel {
-	width: 1300px; /*サイズ指定*/
+	width: 70%; /*サイズ指定*/
 	margin: auto;
 	padding-bottom: 50px;
 }
@@ -268,30 +281,31 @@ div#main {
 }
 
 nav {
-	width:25%;
+	width: 25%;
 	padding-left: 80px;
 	float: left;
 }
 
-nav li{
+nav li {
 	font-size: x-large;
 }
-.mask-area{
+
+.mask-area {
 	font-size: large;
 	padding-top: 30px;
 	padding-right: 15px;
 }
 
-input.size{
-	 transform: scale(3.21);
-	 margin-top: 14px;
-	 margin-left: 6px;
+input.size {
+	transform: scale(3.21);
+	margin-top: 14px;
+	margin-left: 6px;
 }
 
-input.size2{
-	 transform: scale(3.3);
-	 margin-top: 14px;
-	 margin-left: 15px;
+input.size2 {
+	transform: scale(3.3);
+	margin-top: 14px;
+	margin-left: 15px;
 }
 
 footer.alert {
@@ -300,16 +314,17 @@ footer.alert {
 	margin-top: 30px;
 }
 
-nav li h2{
-position: relative;
-padding: 0.25em 0;
+nav li h2 {
+	position: relative;
+	padding: 0.25em 0;
 }
 
 nav li h2:after {
-content: "";
-display: block;
-height: 4px;
-background: -moz-linear-gradient(to right, rgb(90, 90, 230), transparent);
-background: -webkit-linear-gradient(to right, rgb(90, 90, 230), transparent);
-background: linear-gradient(to right, rgb(90, 90, 230), transparent);
+	content: "";
+	display: block;
+	height: 4px;
+	background: -moz-linear-gradient(to right, rgb(90, 90, 230), transparent);
+	background: -webkit-linear-gradient(to right, rgb(90, 90, 230),
+		transparent);
+	background: linear-gradient(to right, rgb(90, 90, 230), transparent);
 }

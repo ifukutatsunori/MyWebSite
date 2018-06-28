@@ -13,15 +13,21 @@
 <body>
 
 	<div class="alert2" role="alert">
-		<div class="title-area"><h1>購入完了画面</h1></div>
+		<div class="title-area">
+			<h1>購入完了画面</h1>
+		</div>
 	</div>
 	<h4 class="title-area2">購入が完了しました</h4>
 	<h3 class="title-area2">5秒後にホーム画面に遷移します</h3>
-	<div>
-		<a
-			href="C:\Users\tatsu\Documents\git\MyWebSite\Mock\user-list-private.html"
-			class="btn4 btn-secondary btn-lg"> 買い物を続ける </a> <a href="UserInfo"
-			class="btn4 btn-success btn-lg"> 購入履歴へ </a>
+	<div class="form2-area">
+		<div class="row">
+			<div class="col">
+				<button formaction="Index" class="btn4 btn-secondary btn-lg">買い物を続ける</button>
+			</div>
+			<div class="col">
+				<button formaction="UserInfo" class="btn4 btn-success btn-lg">購入履歴へ</button>
+			</div>
+		</div>
 	</div>
 	<script>
 		window.onload = function() {
